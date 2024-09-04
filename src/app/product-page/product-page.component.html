@@ -1,0 +1,13 @@
+<page-heading></page-heading>
+
+<product-navbar></product-navbar>
+
+<!--Product Cards to be displayed in grid-->
+<div class="grid md:grid-cols-4 gap-4 m-4">
+  <div *ngFor="let product of products">
+    <div class="mr-2">
+      <product-card [product]="product"></product-card>
+    </div>
+  </div>
+ 
+</div>

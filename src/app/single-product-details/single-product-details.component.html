@@ -1,0 +1,65 @@
+<!--Card to hold product information-->
+<div class="container">
+    <!--Heading-->
+    <div class="heading">
+        <h1 class="maker">
+     <!--    {{ product.maker }}<span class="model">{{ product.model }}</span> -->
+        </h1>
+        <h1 class="price">
+        <!-- {{ product.price | currency }} -->
+        </h1>
+    </div>
+  
+    <div class="columns">
+      <div class="left-column" id="left">
+        <div class="desktop-product-image w3-rest">
+          <img class="product-image" [src]="product.image">
+        </div>
+      </div>
+  
+      <div class="right-column">
+        <!--Description paragraph-->
+        <!--???? SIDE BY SIDE WITH IMAGE ???-->
+        <div class="rows">
+        <div class="description">
+          <h4>Description:</h4>
+          <!-- <span>{{ product.description }}</span> -->
+        </div>
+  
+        <hr>
+  
+      <!--Table to hold details-->
+      <div class="details">
+        <h4>Details:</h4>
+        <div class="mdc-data-table">
+          <div class="mdc-data-table__table-container table">
+            <table class="mdc-data-table__table" aria-label="Dessert calories">
+              <tbody class="mdc-data-table__content">
+                <tr class="mdc-data-table__header-row">
+                  <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Maker</th>
+                  <td><!--  {{ product.maker }} --></td>
+                </tr>
+                <tr class="mdc-data-table__row">
+                  <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Model</th>
+                  <td><!-- {{ product.model }} --></td>
+                </tr>
+                <tr><!--  *ngFor= "let propertyName of otherInfoKeys" class="mdc-data-table__row" -->
+                  <th class="mdc-data-table__header-cell" role="columnheader" scope="col"><!-- {{ propertyName }} --></th>
+                  <td><!-- {{ product.otherInfo[propertyName] }} --></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div> 
+  
+</div>
+  
+<!-- 
+OLD CODE
+took out mat card -- find better solution 
+w3schools format --find better solution -->

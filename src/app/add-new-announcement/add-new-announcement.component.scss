@@ -1,0 +1,31 @@
+.new-announcement-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1{
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+mat-form-field, button {
+  width: 40%;
+}
+
+button {
+  background-color: #ebdfd2;
+  padding: 10px;
+}
+
+mat-dialog-actions {
+  justify-content: end;
+}
+
+@media only screen and (max-width: 600px) {
+  mat-form-field, button {
+    width: 90%;
+  }
+
+}

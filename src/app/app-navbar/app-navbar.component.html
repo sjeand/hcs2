@@ -1,0 +1,43 @@
+<!-- ========== HEADER ========== -->
+<header 
+  class="bg-secondary text-md p-2
+  md:text-lg md:grid md:grid-cols-9"
+  >
+
+  <div></div>
+
+  <div class="md:col-span-6">
+    <nav class="columns-4">
+      
+      <div id="hs-navbar-hcail" 
+        class="pb-2" 
+        aria-labelledby="hs-navbar-hcail-collapse">
+        <div>
+          <a class="text-center hover:font-medium active:font-medium" routerLink="/">Home</a>
+        </div>
+        <div>
+          <a class="text-center hover:font-medium active:font-medium" routerLink="/page-not-found">About</a>
+        </div>
+        <div>
+          <a class="text-center hover:font-medium active:font-medium" routerLink="/product-page">Products</a>
+        </div>
+        <div>
+          <a class="text-center hover:font-medium active:font-medium" routerLink="/page-not-found">Gun Shows</a>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+  <div class="md:col-span-2 mr-2">
+    <!--Search bar-->
+    <app-search-bar 
+      class="flex justify-center
+      md:w-full"
+    >
+    </app-search-bar>
+  </div>
+
+</header>
+
+<!-- ========== END HEADER ========== -->

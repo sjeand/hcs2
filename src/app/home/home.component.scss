@@ -1,0 +1,97 @@
+/* Image carousel styling*/
+/* .slide-show{
+  display: flex;
+  justify-content: center;
+  background-color:#B6B5AF;
+}
+
+.images {
+  height: 38rem;
+  width: auto;
+  padding: 1rem
+} */
+
+/* Announcement styling*/
+/* h2 {
+  color: white;
+  font-weight: 300;
+  font-size: 45px;
+  padding-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.banner {
+  padding-bottom: 20px;
+}
+
+.homepage-content {
+  background-color: #2D2B1B;
+  padding-bottom: 40px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  height: 100%;
+  flex-basis: 48%;
+}
+
+app-new-announcement{
+  padding-bottom: 20px;
+}
+
+.single-column-layout {
+  display: none;
+} */
+
+/* Styling for phones/small screens */
+/* @media screen and (max-width: 600px) { */
+
+  /* display announcements as one column - PHONE*/
+/*   .column {
+    flex: 1;
+  }
+  .multi-column-layout {
+    display: none;
+  }
+  .single-column-layout {
+    display: block;
+    padding: 0 20px 10px 20px;
+  }
+
+  app-new-announcement{
+    padding: 10px;
+  }
+ */
+  /* Announcement styling -PHONE*/
+/*   h2 {
+    font-size: 36px;
+    margin-bottom: 0;
+  }
+
+  .banner {
+    padding-bottom: 10px;
+  } */
+  /* Image carousel styling - PHONE*/
+ /*  .slide-show{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .images {
+    width: 80%;
+    height: auto;
+  }
+} */

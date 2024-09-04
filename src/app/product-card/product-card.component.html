@@ -1,0 +1,39 @@
+<div class="flex flex-col bg-white p-2 bordershadow-lg rounded-xl">
+    <img class="w-full h-auto rounded-t-xl border-b-2" src="https://images.guns.com/prod/2024/03/08/65eb7ca22e344feb775a86d30b01e593ee5fcb28ed1b1.jpg?imwidth=1200" alt="Card Image">
+    <div class="p-4  columns-2 md:p-5">
+      <div class="text-xl font-semibold">
+        {{product.maker}}
+      </div>
+      <div class="text-lg font-normal">
+        {{ product.model }}
+      </div>
+      <div class="text-xl font-semibold float-right">
+        {{ product.price | currency }}
+      </div>
+    </div>
+</div>
+
+<!-- OLD CODE -->
+<!--Card for products-->
+<!-- <mat-card class="product-card">
+  <div class="admin">
+    <i class="fa fa-trash"></i>
+    <i  class="fa fa-edit"></i>
+  </div> -->
+  <!--Product Image-->
+<!--   <img mat-card-image width="25%" height="300" [src]="product.image"> -->
+  <!--Product Maker and Price-->
+   <!--  <div class="maker-price-container">
+      <mat-card-title class="maker">{{ product.maker }}</mat-card-title>
+      <mat-card-title class="price">{{ product.price | currency }}</mat-card-title>
+    </div> -->
+    <!--Product Model-->
+ <!--    <div class="model-container">
+      <mat-card-subtitle class="model">{{ product.model }}</mat-card-subtitle>
+    </div> -->
+    <!--See details button-->
+     <!--  <mat-card-actions>
+        <mat-button-toggle class="details" [routerLink]="['/single-product', product.id]">See Details</mat-button-toggle>
+      </mat-card-actions>
+    </mat-card> -->
+

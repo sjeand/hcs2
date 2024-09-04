@@ -1,0 +1,42 @@
+<form class="new-announcement-form">
+  <h1>Add Announcement</h1>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input [(ngModel)]="announcement.title" name="title" matInput required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Subtitle</mat-label>
+    <input [(ngModel)]="announcement.subtitle" name="subtitle" matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Text</mat-label>
+    <textarea [(ngModel)]="announcement.text" name="text" matInput required></textarea>
+  </mat-form-field>
+
+  <mat-form-field  appearance="fill">
+    <mat-label>Image</mat-label>
+    <ngx-mat-file-input [(ngModel)]="imageFile" placeholder="Select Image" valuePlaceholder="No image file selected"></ngx-mat-file-input>
+    <mat-icon matSuffix>folder</mat-icon>
+    <!-- <mat-error>
+      <span *ngIf="!galleryForm.get('imageFile').valid">Please select image file</span>
+    </mat-error> -->
+  </mat-form-field>
+
+
+  <button (click)="addAnnouncement()" mat-raised-button>Add New Announcement</button>
+
+  <ng-template #errorDialog>
+  <h2 matDialogTitle>Error</h2>
+  <p matDialogContent>There was a problem posting your announcement...</p>
+  <mat-dialog-actions>
+    <button mat-button matDialogClose>OK</button>
+  </mat-dialog-actions>
+</ng-template>
+
+</form>
+
+
+
