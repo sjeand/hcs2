@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Input, Component } from '@angular/core';
 import { Product } from '../model/product';
 import { CurrencyPipe } from '@angular/common';
 

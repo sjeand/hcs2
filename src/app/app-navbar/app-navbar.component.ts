@@ -14,6 +14,9 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './app-navbar.component.scss'
 })
 export class AppNavbarComponent {
+setDocTitle(arg0: string) {
+throw new Error('Method not implemented.');
+}
 
 }
 

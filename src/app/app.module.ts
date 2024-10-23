@@ -38,18 +38,18 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { Nl2brPipe } from './nl2br.pipe'; */
-import { ProductPageComponent } from './product-page/product-page.component';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { AppFooterComponent } from './app-footer/app-footer.component';
-import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
-import { SingleProductDetailsComponent } from './single-product-details/single-product-details.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PageHeadingComponent } from './page-heading/page-heading.component';
-import { ProductCardComponent } from './product-card/product-card.component';
-import { AppTitleComponent } from './app-title/app-title.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { ProductNavbarComponent } from './product-navbar/product-navbar.component';
-import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
+// import { ProductPageComponent } from './product-page/product-page.component';
+// import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+// import { AppFooterComponent } from './app-footer/app-footer.component';
+// import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+// import { SingleProductDetailsComponent } from './single-product-details/single-product-details.component';
+// import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// import { PageHeadingComponent } from './page-heading/page-heading.component';
+// import { ProductCardComponent } from './product-card/product-card.component';
+// import { AppTitleComponent } from './app-title/app-title.component';
+// import { SearchBarComponent } from './search-bar/search-bar.component';
+// import { ProductNavbarComponent } from './product-navbar/product-navbar.component';
+// import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
 import { CommonModule } from '@angular/common';
 
 
@@ -57,27 +57,27 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductPageComponent,
-    HomeComponent,
-    AppLogoComponent,
+    // AppComponent,
+    // ProductPageComponent,
+    // HomeComponent,
+    // AppLogoComponent,
     /* ProductDetailComponent, */
-    AppNavbarComponent,
+    // AppNavbarComponent,
 /*     GunshowsComponent,
     AboutComponent, */
-    AppFooterComponent,
-    SingleProductDetailsComponent,
+    // AppFooterComponent,
+    // SingleProductDetailsComponent,
    /*  RequestToPurchaseDialogComponent,
     NewAnnouncementComponent, */
-    AdminSignInComponent,
-    AddNewProductComponent,
-    PageNotFoundComponent,
-    PageHeadingComponent,
-    ProductCardComponent,
-    AppTitleComponent,
-    SearchBarComponent,
-    ProductNavbarComponent,
-    AnnouncementCardComponent
+    // AdminSignInComponent,
+    // AddNewProductComponent,
+    // PageNotFoundComponent,
+    // PageHeadingComponent,
+    // ProductCardComponent,
+    // AppTitleComponent,
+    // SearchBarComponent,
+    // ProductNavbarComponent,
+    // AnnouncementCardComponent
     /* AddNewAnnouncementComponent,
     AddNewGunshowComponent,
     ProductImageComponent,
@@ -113,7 +113,6 @@ import { CommonModule } from '@angular/common';
     MatSnackBarModule,
     MaterialFileInputModule */
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
 export class AppModule { }

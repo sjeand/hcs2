@@ -1,6 +1,6 @@
-<page-heading></page-heading>
+<page-heading title="Our Products"></page-heading>
 
-<product-navbar></product-navbar>
+<product-navbar (onFilterClicked)="onFilterClicked($event)"></product-navbar>
 
 <!--Product Cards to be displayed in grid-->
 <div class="grid md:grid-cols-4 gap-4 m-4">
@@ -9,5 +9,5 @@
       <product-card [product]="product"></product-card>
     </div>
   </div>
- 
+
 </div>

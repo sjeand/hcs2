@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'page-heading',
@@ -8,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './page-heading.component.scss'
 })
 export class PageHeadingComponent {
-
+  @Input() title = "";
+  constructor(
+   
+  ) {
+  
+  }
 }
+
+

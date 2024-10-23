@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { HomeComponent } from './home/home.component';
@@ -17,9 +16,9 @@ export const routes: Routes = [
     {path: 'app-navbar', component: AppNavbarComponent},
     {path: 'app-footer', component: AppFooterComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'home', component: HomeComponent },
-    {path: 'product-page', component: ProductPageComponent},
-    {path: 'page-not-found', component: PageNotFoundComponent},
+    {path: 'home', component: HomeComponent, data: {title: 'Welcome to High Country Sports LLC'} },
+    {path: 'product-page', component: ProductPageComponent, data: {title: 'Products'}},
+    {path: 'page-not-found', component: PageNotFoundComponent, data: {title: 'Page Not Found'}},
     {path: 'app-logo', component: AppLogoComponent},
     {path: 'page-heading', component: PageHeadingComponent},
     {path: 'product-card', component: ProductCardComponent},

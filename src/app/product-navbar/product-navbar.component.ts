@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HSDropdown } from "preline/preline";
 
 @Component({
@@ -9,14 +9,17 @@ import { HSDropdown } from "preline/preline";
   styleUrl: './product-navbar.component.scss'
 })
 export class ProductNavbarComponent {
+  @Output() public onFilterClicked = new EventEmitter<string>();
+  onClick(filterType: string): void {
+    this.onFilterClicked.emit(filterType)
+  }
   ngOnInit(): void {
     const openBtn = document.querySelector('#hand-gun-btn');
 
     openBtn?.addEventListener('click', () => {
-      const dropdown=document.querySelector("#hand-gun-dropdown")
+      const dropdown = document.querySelector("#hand-gun-dropdown")
       HSDropdown.open(dropdown as HTMLElement);
     });
   }
 }
 
-/* hand-gun-dropdown */
