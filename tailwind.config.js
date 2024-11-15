@@ -8,7 +8,7 @@ module.exports = {
         secondary: '#AAA274',
         accent: '#b4654a',
         background: '#F1EBE2',
-        slider: '#DED1C0'
+        slider: '#e1d7cc'
       },
       fontFamily: {
         body:['"Montserrat", sans-serif']

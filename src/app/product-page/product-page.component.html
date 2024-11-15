@@ -10,4 +10,8 @@
     </div>
   </div>
 
+
 </div>
+
+<div *ngIf="!products.length && filterType !== 'all'" class="text-center p-10 text-xl">No matching products were found</div>
+<div *ngIf="!products.length && filterType == 'all'" class="text-center p-10 text-xl">No products are available</div>

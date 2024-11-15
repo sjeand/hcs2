@@ -1,6 +1,7 @@
 import { Input, Component } from '@angular/core';
 import { Product } from '../model/product';
 import { CurrencyPipe } from '@angular/common';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'product-card',
@@ -11,4 +12,15 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class ProductCardComponent {
  @Input() product!:Product;
+ productImage = "";
+
+ constructor(private productService: ProductService) {
+    
+ }
+ async ngOnInit(): Promise<void> {
+  const data = await this.productService.getProductImage(this.product.image);
+  if(!data) return;
+  this.productImage = data.publicUrl;
+
+}
 }

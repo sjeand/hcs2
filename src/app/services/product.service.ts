@@ -48,10 +48,26 @@ export class ProductService {
     return this._session
   }
 
-  async getProducts(filterType: string) {
+  async getProductImage(imageName?: string) {
+    const bucket = 'product_images';
+    const realImageName = (imageName == null) ? 'imageComingSoon.png' : imageName;
+    const { data } = await this.supabase
+      .storage
+      .from(bucket)
+      .getPublicUrl(realImageName)
+    return data;
+  }
+
+  async getProducts(productType: string, searchString: string | null) {
     let query = undefined;
     let results = undefined;
-    switch (filterType) {
+    if (searchString !== null) {
+      results = await this.supabase
+        .from('products')
+        .select().or(`maker.like.%${searchString}%,model.like.%${searchString}%`);
+      return results?.data;
+    }
+    switch (productType) {
 
       case 'handgun':
         results = await this.supabase

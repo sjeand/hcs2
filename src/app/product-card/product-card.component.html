@@ -1,5 +1,7 @@
 <div class="flex flex-col bg-white p-2 bordershadow-lg rounded-xl">
-    <img class="w-full h-auto rounded-t-xl border-b-2" src="https://images.guns.com/prod/2024/03/08/65eb7ca22e344feb775a86d30b01e593ee5fcb28ed1b1.jpg?imwidth=1200" alt="Card Image">
+  <div>
+    <img class="w-full h-96 border-b-2" [src]="productImage" alt="Card Image" height="200"/>
+    </div>
     <div class="p-4  columns-2 md:p-5">
       <div class="text-xl font-semibold">
         {{product.maker}}

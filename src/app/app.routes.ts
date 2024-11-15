@@ -11,19 +11,22 @@ import { AppTitleComponent } from './app-title/app-title.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ProductNavbarComponent } from './product-navbar/product-navbar.component';
 import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 export const routes: Routes = [
     {path: 'app-navbar', component: AppNavbarComponent},
     {path: 'app-footer', component: AppFooterComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'home', component: HomeComponent, data: {title: 'Welcome to High Country Sports LLC'} },
-    {path: 'product-page', component: ProductPageComponent, data: {title: 'Products'}},
-    {path: 'page-not-found', component: PageNotFoundComponent, data: {title: 'Page Not Found'}},
+    {path: 'home', component: HomeComponent},
+    {path: 'product-page', component: ProductPageComponent},
+    {path: 'product-page/:searchText', component: ProductPageComponent},
+    {path: 'page-not-found', component: PageNotFoundComponent},
     {path: 'app-logo', component: AppLogoComponent},
     {path: 'page-heading', component: PageHeadingComponent},
     {path: 'product-card', component: ProductCardComponent},
     {path: 'app-title', component: AppTitleComponent},
     {path: 'search-bar', component: SearchBarComponent},
     {path: 'product-navbar', component: ProductNavbarComponent},
-    {path: 'announcement-card', component: AnnouncementCardComponent}
+    {path: 'announcement-card', component: AnnouncementCardComponent},
+    {path: 'login', component: LoginPageComponent}
 ];

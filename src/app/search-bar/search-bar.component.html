@@ -1,6 +1,7 @@
 <!-- Search Bar -->
  <div class="flex">
     <input type="text" placeholder="Search Our Inventory..."
-    class="border-black rounded-lg text-sm w-screen" >
+    class="border-black rounded-lg text-sm w-screen" 
+    [(ngModel)]="searchText" (input)="searchChange()" >
 </div>
 
