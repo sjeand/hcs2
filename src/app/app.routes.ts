@@ -12,6 +12,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ProductNavbarComponent } from './product-navbar/product-navbar.component';
 import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AddNewProductComponent } from './add-new-product/add-new-product.component';
+import { AddNewAnnouncementComponent } from './add-new-announcement/add-new-announcement.component';
+import { AddNewGunshowComponent } from './add-new-gunshow/add-new-gunshow.component';
+import { GunshowsComponent } from './gunshows/gunshows.component';
 
 export const routes: Routes = [
     {path: 'app-navbar', component: AppNavbarComponent},
@@ -28,5 +32,10 @@ export const routes: Routes = [
     {path: 'search-bar', component: SearchBarComponent},
     {path: 'product-navbar', component: ProductNavbarComponent},
     {path: 'announcement-card', component: AnnouncementCardComponent},
-    {path: 'login', component: LoginPageComponent}
+    {path: 'login', component: LoginPageComponent},
+    {path: 'add-new-product', component: AddNewProductComponent},
+    {path: 'add-new-announcement', component: AddNewAnnouncementComponent},
+    {path: 'add-new-gunshow', component: AddNewGunshowComponent},
+    {path: 'gunshows', component: GunshowsComponent}
+
 ];

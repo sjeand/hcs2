@@ -1,56 +1,104 @@
-<p>add-new-product works!</p>
+<div>
+    <h1 class="text-lg font-bold">Add New Product</h1>
+    <h2> Enter text carefully as this is how it will be displayed onto the website</h2>
 
-<!-- 
+    <div class="max-w-sm space-y-3">
+        <!--Insert Maker-->
+        <input type="text" placeholder="Maker">
+        <!--Insert Model-->
+        <input type="text" placeholder="Model">
+        <!--Insert Price-->
+        <input type="text" placeholder="Price">
 
-FORM FOR RICK TO ADD NEW PRODUCT TO PRODUCT PAGE
+        <!--Insert Photo-->
+        <form action="/action_page.php">
+            <input type="file" id="myFile" name="filename">
+            <input type="submit">
+        </form>
 
-<form class="new-product-form">
-    <h1>Add New Product</h1>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Maker</mat-label>
-      <input [(ngModel)]="product.maker" name="maker" matInput required>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Model</mat-label>
-      <input [(ngModel)]="product.model" name="model" matInput required>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Price</mat-label>
-      <span matPrefix>$ &nbsp;</span>
-      <input [(ngModel)]="product.price" name="price" matInput required>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Description</mat-label>
-      <textarea [(ngModel)]="product.description" name="description" matInput required></textarea>
-    </mat-form-field>
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Other Info</mat-label>
-      <input [(ngModel)]="product.otherInfo" name="otherInfo" matInput>
-    </mat-form-field>
-  
-  
-      <input type="file" [(ngModel)]="product.image" name="image">
-  
-  
-    <mat-form-field appearance="fill">
-      <mat-label>Type</mat-label>
-      <mat-select [formControl]="typeControl">
-  
-        <mat-optgroup *ngFor="let productType of productTypes" [label]="productType.label">
-        <mat-option *ngFor="let subtype of productType.subtypes" [value]="subtype">
-          {{ subtype }}
-        </mat-option>
-      </mat-optgroup>
-  
-  
-      </mat-select>
-    </mat-form-field>
-  
-    <button (click)="addProduct()"  mat-raised-button>Add New Product</button>
-  </form> -->
-  
+        <!--Insert Product Description-->
+        <textarea class="" rows="4" placeholder="Insert Product Description..."></textarea>
+    </div>
+
+    <!--Drop Down for product Type-->
+    <div class="hs-dropdown relative inline-flex p-1">
+        <button id="hs-dropdown-default" type="button"
+            class="hs-dropdown-toggle py-3 px-4 inline-flex items-center bg-white" aria-haspopup="menu"
+            aria-expanded="false" aria-label="Dropdown">
+            Type
+            <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </button>
+        <!--Drop Down Options-->
+        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+            role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
+            <div class="p-1 space-y-0.5">
+                <a class="flex items-center" href="#">
+                    Hand Gun
+                </a>
+                <a class="flex items-center" href="#">
+                    Long Gun
+                </a>
+                <a class="flex items-center" href="#">
+                    Other
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!--Drop Down for product Sub Type-->
+    <div>
+        <div class="hs-dropdown relative inline-flex p-1">
+            <button id="hs-dropdown-default" type="button"
+                class="hs-dropdown-toggle py-3 px-4 inline-flex items-center bg-white" aria-haspopup="menu"
+                aria-expanded="false" aria-label="Dropdown">
+                Sub Type
+                <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m6 9 6 6 6-6" />
+                </svg>
+            </button>
+            <!--Drop Down Options-->
+            <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
+                role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
+                <div class="p-1 space-y-0.5">
+                    <a class="flex items-center" href="#">
+                        Revolver
+                    </a>
+                    <a class="flex items-center" href="#">
+                        Semi-Auto
+                    </a>
+                    <a class="flex items-center" href="#">
+                        Rifle
+                    </a>
+                    <a class="flex items-center" href="#">
+                        Shotgun
+                    </a>
+                    <a class="flex items-center" href="#">
+                        Accessory
+                    </a>
+                    <a class="flex items-center" href="#">
+                        Ammo
+                    </a>
+                    <a class="flex items-center" href="#">
+                        Part
+                    </a>
+                    <a class="flex items-center" href="#">
+                        Other
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800">
+        Submit
+    </button>
+
+</div>
