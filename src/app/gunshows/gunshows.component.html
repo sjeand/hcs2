@@ -1,49 +1,40 @@
+
 <!--Home Page heading-->
 <page-heading title="Upcoming Gunshows"></page-heading>
-<div class="flex flex-col">
-    <div class="-m-1.5 overflow-x-auto">
-        <div class="p-1.5 min-w-full inline-block align-middle">
-            <div class="overflow-hidden">
-                <table class="min-w-full divide-y divide-gray-200">
+<div class="hidden">
+    <a class="underline underline-offset-4" href="https://gunshowtrader.com/gun-shows/west-fargo-gun-show/" target="_blank"
+    rel="noopener noreferrer">Click here for more details</a>
+</div>
+
+<div class="flex flex-col ">
+    <div class="h-full">
+        <div class="min-w-full inline-block align-middle pb-4 px-4">
+            <div class="p-2 bg-secondary">
+                <table class="min-w-full divide-y bg-background divide-neutral-400">
                     <thead>
-                        <tr>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Gun
-                                Show</th>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                        <tr class="md:text-xl md:tracking-wide bg-slider">
+                            <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
+                                Gun Show</th>
+                            <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
                                 Location</th>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                            <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
                                 Date & Time</th>
-                            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                            <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
                                 Details</th>
 
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <td>West Fargo Gun Show</td>
-                        <td>Red River Fairgrounds, West Fargo, ND</td>
-                        <td>December 7th, 9am-5pm <br>December 8th, 9am-3pm</td>
-                        <td>
-                            <a href="https://gunshowtrader.com/gun-shows/west-fargo-gun-show/" target="_blank"
-                                rel="noopener noreferrer">Click here for more details</a>
-                        </td>
-                    </tbody>
-                    <tbody class="divide-y divide-gray-200">
-                        <td>Bismarck Gun Show</td>
-                        <td>Bismarck Civic Center, Bismarck, ND</td>
-                        <td>January 18th, 9am-5pm <br>January 19th, 9am-3pm</td>
-                        <td>
-                            <a href="https://gunshowtrader.com/gun-shows/bismarck-gun-show/" target="_blank"
-                                rel="noopener noreferrer">Click here for more details</a>
-                        </td>
-                    </tbody>
-                    <tbody class="divide-y divide-gray-200">
-                        <td>Red River Valley Gun Show</td>
-                        <td>Red River Fair Grounds, West Fargo, ND</td>
-                        <td>February 8th, 9am-5pm <br>February 9th, 9am-3pm</td>
-                        <td>
-                            <a href="https://gunshowtrader.com/gun-shows/west-fargo-gun-show/" target="_blank"
-                                rel="noopener noreferrer">Click here for more details</a>
-                        </td>
+                    <tbody class="divide-y divide-neutral-400">
+                        <tr *ngFor="let gunshow of gunshows">
+                            <td class="text-start p-2 md:text-lg"> {{ gunshow.name }} </td>
+                            <td class="text-start p-2 md:text-lg"> {{ gunshow.location }} </td>
+                            <td class="text-start p-2 md:text-lg" [innerHTML]="gunshow.date"></td>
+                            <td class="text-start p-2 md:text-lg">  <a *ngIf="gunshow.detailsLink" class="underline underline-offset-4" [href]="gunshow.detailsLink" target="_blank"
+                                rel="noopener noreferrer">Click here for more details</a> </td>
+
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
             </div>

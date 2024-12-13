@@ -2,11 +2,12 @@ import { Input, Component } from '@angular/core';
 import { Product } from '../model/product';
 import { CurrencyPipe } from '@angular/common';
 import { ProductService } from '../services/product.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'product-card',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, RouterLink],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
 })
@@ -23,4 +24,5 @@ export class ProductCardComponent {
   this.productImage = data.publicUrl;
 
 }
+
 }

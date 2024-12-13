@@ -1,0 +1,26 @@
+<div class="md:grid md:grid-rows-3 md:grid-flow-col md:gap-4 md:p-10 p-4">
+
+    <!--Product Image-->
+    <div class="md:row-span-3 ...">
+        <img class="w-full h-96 border-b-2" [src]="productImage"/>
+    </div>
+
+    <!--Title: Product Maker and Model-->
+    <div class="md:col-span-2 ... pb-2">
+        <div class="text-3xl tracking-wide
+            md:text-4xl font-semibold">
+            {{ product?.maker }}
+        </div>
+        <div class="text-3xl tracking-wide
+        md:text-3xl "> {{ product?.model }}  </div>
+        <div class="text-3xl tracking-wide
+        md:text-2xl "> {{ product?.price | currency }} </div>
+
+    </div>
+
+    <div class="md:row-span-2 md:col-span-2 ...">
+        {{ product?.description }}
+    </div>
+
+
+</div>

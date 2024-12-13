@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Product, ProductUpload } from '../model/product';
 import { environment } from '../../environments/environment'
 import {
-  AuthChangeEvent,
+
   AuthSession,
   createClient,
-  Session,
+
   SupabaseClient,
   User,
 } from '@supabase/supabase-js'
@@ -138,21 +138,7 @@ export class ProductService {
     }
     return results?.data;
 
-    /*  return of([
-       {
-       maker: "Glock",
-       model: "ABC",
-       price: 2
-     },{
-       maker: "Smith & Wesson",
-       model: "ABC",
-       price: 3
-      }, {
-         maker: "Ruger",
-         model: "ABC",
-         price: 10
-       }
-     ]) */
+    
   }
 
   createProduct(product: ProductUpload) {
