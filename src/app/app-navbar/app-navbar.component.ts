@@ -4,12 +4,13 @@ import { ProductPageComponent } from '../product-page/product-page.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { AboutComponent } from '../about/about.component';
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [HomeComponent, ProductPageComponent, PageNotFoundComponent, SearchBarComponent, RouterOutlet, RouterLink],
+  imports: [HomeComponent, ProductPageComponent, PageNotFoundComponent, SearchBarComponent, RouterOutlet, RouterLink, AboutComponent],
   templateUrl: './app-navbar.component.html',
   styleUrl: './app-navbar.component.scss'
 })
