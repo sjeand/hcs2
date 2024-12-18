@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Announcement} from '../model/announcement'
+import { Component, Input, } from '@angular/core';
+import { Announcement } from '../model/announcement'
 import { AnnouncementService } from '../services/announcement.service';
+
 
 @Component({
   selector: 'announcement-card',
@@ -10,31 +11,19 @@ import { AnnouncementService } from '../services/announcement.service';
   styleUrl: './announcement-card.component.scss'
 })
 
-export class AnnouncementCardComponent 
-implements OnInit {
 
+export class AnnouncementCardComponent {
   @Input() announcement!: Announcement;
-  @Output() deleted: EventEmitter<Announcement> = new EventEmitter<Announcement>();
-  admin = true;
+  announcementImage = "";
 
   constructor(private announcementService: AnnouncementService) {
-    this.announcement = {
-      title: '',
-      subtitle: '',
-      text: '',
-      /* image: '' */
-    }
-   }
 
-  ngOnInit(): void {
   }
+/*   async ngOnInit(): Promise<void> {
+    const data = await this.announcementService.getAnnouncementImage(this.announcement.image);
+    if (!data) return;
+    this.announcementImage = data.publicUrl;
 
-  /* deleteAnnouncement(){
-   this.announcementService.deleteAnnouncement(this.announcement).subscribe(() => {
-    this.deleted.emit(this.announcement);
-   })
+  } */
 
-  }; */
 }
-
-

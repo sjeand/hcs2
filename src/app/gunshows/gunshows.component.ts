@@ -20,8 +20,8 @@ export class GunshowsComponent {
   }
   async fetchGunshows() {
     const gunshows = await this.gunshowService.getGunshows();
-    this.gunshows = gunshows?.map(show =>({
-      ...show, 
+    this.gunshows = gunshows?.map(show => ({
+      ...show,
       date: show.date.replaceAll('\\n', '<br>')
     })) as Gunshow[];
     console.log(JSON.stringify(this.gunshows))

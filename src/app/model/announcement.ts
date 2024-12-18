@@ -1,8 +1,7 @@
 export interface Announcement{
-  /* _id?: any; */
+  image?: string;
   title: string;
   subtitle: string;
-  /* image: string; */
   text: string;
 }
 

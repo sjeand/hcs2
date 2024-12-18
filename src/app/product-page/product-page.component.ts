@@ -34,7 +34,6 @@ export class ProductPageComponent {
 
   onFilterClicked(filterType: string) {
     this.filterType = filterType;
-    //sessionStorage.setItem("productFilterType", filterType);
     this.fetchProducts();
   };
 }
