@@ -18,6 +18,7 @@ import { AddNewGunshowComponent } from './add-new-gunshow/add-new-gunshow.compon
 import { GunshowsComponent } from './gunshows/gunshows.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { AboutComponent } from './about/about.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 export const routes: Routes = [
     {path: 'app-navbar', component: AppNavbarComponent},
@@ -40,5 +41,6 @@ export const routes: Routes = [
     {path: 'add-new-gunshow', component: AddNewGunshowComponent},
     {path: 'gunshows', component: GunshowsComponent},
     {path: 'product-info', component: ProductInfoComponent},
-    {path: 'about', component: AboutComponent}
+    {path: 'about', component: AboutComponent},
+    {path: 'admin-home', component: AdminHomeComponent}
 ];

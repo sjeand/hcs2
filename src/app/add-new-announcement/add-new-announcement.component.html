@@ -1,25 +1,30 @@
-<div>
-    <h1 class="text-lg font-bold">Add New Announcement</h1>
-    <h2> Enter text carefully as this is how it will be displayed onto the website</h2>
 
-    <div class="max-w-sm space-y-3">
-        <!--Insert Maker-->
-        <input type="text" placeholder="Title">
-        <!--Insert Model-->
-        <input type="text" placeholder="Subtitle">
+<div class="size-full items-center p-10">
+    <div class="size-full bg-admin rounded-lg p-10">
+        <h1 class="text-xl font-bold pb-2">Add New Announcement</h1>
+        <h2 class="text-lg pb-2">*** Enter text carefully as this is how it will be displayed directly onto the website
+            ***</h2>
+
+        <div class="max-w-sm space-y-3">
+            <!--Insert Maker-->
+            <input type="text" placeholder="Title">
+            <!--Insert Model-->
+            <input type="text" placeholder="Subtitle">
 
 
-        <!--Insert Photo-->
-        <form action="/action_page.php">
-            <input type="file" id="myFile" name="filename">
-            <input type="submit">
-        </form>
+            <!--Insert Photo-->
+            <form action="/action_page.php">
+                <input type="file" id="myFile" name="filename">
+                <input type="submit">
+            </form>
 
-        <!--Insert Product Description-->
-        <textarea class="" rows="4" placeholder="Insert announcement..."></textarea>
+            <!--Insert Product Description-->
+            <textarea class="" rows="4" placeholder="Insert announcement..."></textarea>
+        </div>
+
+        <button type="button"
+            class="mt-2 p-4 bg-adminAccent inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800">
+            Submit
+        </button>
     </div>
-
-    <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800">
-        Submit
-    </button>
 </div>

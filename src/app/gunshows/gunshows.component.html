@@ -5,11 +5,11 @@
 
     <div class="flex flex-col">
         <div class="">
-            <div class="min-w-full inline-block align-middle md:pb-4 md:px-14">
-                <div class="p-2 bg-secondary">
-                    <table class="min-w-full divide-y bg-background divide-neutral-400">
+            <div class="min-w-full inline-block align-middle md:pb-4 md:px-14 p-2">
+                <div class="bg-white">
+                    <table class="min-w-full divide-y bg-white divide-neutral-400">
                         <thead>
-                            <tr class="md:text-xl md:tracking-wide bg-slider">
+                            <tr class="md:text-xl md:tracking-wide bg-secondary font-body">
                                 <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
                                     Gun Show</th>
                                 <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
@@ -18,7 +18,10 @@
                                     Date & Time</th>
                                 <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
                                     Details</th>
-
+                                <th scope="col" *ngIf="isAdmin" class="text-start p-2 font-medium md:tracking-wide">
+                                    Delete</th>
+                                <th scope="col" *ngIf="isAdmin" class="text-start p-2 font-medium md:tracking-wide">
+                                    Edit</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-neutral-400">
@@ -29,6 +32,8 @@
                                 <td class="text-start p-2 md:text-lg"> <a *ngIf="gunshow.detailsLink"
                                         class="underline underline-offset-4" [href]="gunshow.detailsLink"
                                         target="_blank" rel="noopener noreferrer">Click here for more details</a> </td>
+                                <td class="text-start p-2 md:text-lg" *ngIf="isAdmin"><i class="fa fa-trash"></i></td>
+                                <td class="text-start p-2 md:text-lg" *ngIf="isAdmin"><i class="fa fa-edit"></i></td>
 
                             </tr>
 

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-admin-home',
@@ -8,6 +11,16 @@ import { RouterLink } from '@angular/router';
   templateUrl: './admin-home.component.html',
   styleUrl: './admin-home.component.scss'
 })
-export class AdminHomeComponent {
 
+export class AdminHomeComponent {
+  private supabase: SupabaseClient;
+
+  constructor(private router: Router){
+    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
+  }
+  
+ async signOut() {
+  const { error } = await this.supabase.auth.signOut();
+  this.router.navigate(["login"]);
+ }
 }

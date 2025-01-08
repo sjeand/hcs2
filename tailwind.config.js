@@ -4,14 +4,22 @@ module.exports = {
   theme: {
     extend: {
       colors:{       
-        primary: '#3d3b30',
-        secondary: '#AAA274',
+        primary: '#B5A89C',
+        secondary: '#B5A89C',
         accent: '#b4654a',
-        background: '#F1EBE2',
-        slider: '#e1d7cc'
+        background: '#e0dad5',
+        slider: '#e0dad5',
+        admin: '#88fe04',
+        adminAccent:'#F49E9E',
+        adminDisabled: '#aaaaaa'
+        
+      },
+      width: {
+        '128': '14rem'
       },
       fontFamily: {
-        body:['"Montserrat", sans-serif']
+        'display': ['Montserrat'],
+        body:['Montserrat, sans-serif']
       }
     },
   },

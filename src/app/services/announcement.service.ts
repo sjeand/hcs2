@@ -20,15 +20,16 @@ export class AnnouncementService {
     return this._session
   }
 
- /*  async getProductImage(imageName?: string) {
-    const bucket = 'product_images';
-    const realImageName = (imageName == null) ? 'imageComingSoon.png' : imageName;
+  async getAnnouncementImage(imageName?: string) {
+    const bucket = 'announcement_images';
+    const realImageName = (imageName == null) ? 'announcement.png' : imageName;
     const { data } = await this.supabase
       .storage
       .from(bucket)
       .getPublicUrl(realImageName)
     return data;
-  } */
+  }
+
 
     async getAnnouncements() {
       let results =  await this.supabase

@@ -1,6 +1,12 @@
-<div>
-    <a class="text-center hover:font-medium active:font-medium md:pl-10 pl-2" routerLink="/add-new-product">add new product</a>
-    <a class="text-center hover:font-medium active:font-medium md:pl-10 pl-2" routerLink="/add-new-announcement">add new announcement</a>
-    <a class="text-center hover:font-medium active:font-medium md:pl-10 pl-2" routerLink="/add-new-gunshow">add new Gun Show</a>
-
-  </div>
+<div class="justify-self-center py-6">
+    <div class="font-semibold text-2xl text-center">Welcome Rick! You are currently signed in!</div>
+    <div class="p-2">
+        <button class="bg-admin p-2 m-2 rounded font-semibold" (click)="signOut()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            Sign Out
+        </button>
+        <button class="bg-admin p-2 m-2 rounded font-semibold" routerLink="/add-new-product">Add New Product</button>
+        <button class="bg-admin p-2 m-2 rounded font-semibold" routerLink="/add-new-announcement">Add New Announcement</button>
+        <button class="bg-admin p-2 m-2 rounded font-semibold" routerLink="/add-new-gunshow">Add New Gun Show</button>
+    </div>
+</div>

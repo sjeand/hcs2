@@ -1,24 +1,6 @@
-<header class="bg-primary p-4">
-        <div class="justify-center
-                md:grid md:grid-cols-7 md:items-baseline">
-
-                <!--column 1 for logo-->
-                <app-logo class="md:mt-10"></app-logo>
-
-                <!--Column 2 for title-->
-                <h1 class="text-xl font-body text-l text-white uppercase tracking-wide font-medium 
-                md:text-4xl md:col-span-3 ">
-                        High Country Sports LLC
-                        <span class="border-r-2 pl-2"></span>
-                </h1>
-
-                <!--Column 2 for slogan-->
-                <h2 class="font-body text-xl tracking-wide text-white 
-                md:text-xl md:col-span-3">
-                        We appreciate your business,
-                        <span class="italic font-semibold">shoot</span> us some more!
-                </h2>
-
-
-        </div>
+<header class="bg-primary p-2 border-b-8 border-[#88fe04]">
+   <app-logo class=""></app-logo>
+   <div *ngIf="user">
+      <app-admin-home></app-admin-home>
+   </div>
 </header>

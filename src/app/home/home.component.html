@@ -1,21 +1,18 @@
 <!--Home Page-->
 
-<!--Home Page heading-->
-<page-heading title="Welcome to High Country Sports"></page-heading>
-
 <!--image carousel-->
 <app-home-slider></app-home-slider>
 
 <!--Annoucement Board-->
 
 <!--Annoucement board heading-->
-<h2 class="bg-secondary font-body text-xl text-center p-6
-  md:text-3xl md:tracking-wide">
-  Announcements
+<h2 class=" font-body text-xl text-center pt-6 pb-2 uppercase
+  md:text-3xl md:tracking-wide border-t-8 border-[#88fe04]">
+ Announcements
 </h2>
 
 <!--Grid to display new announcements-->
-<div class="grid md:grid-cols-4 gap-4 p-4 md:p-10">
+<div class="grid md:grid-cols-4 gap-4 p-4 md:px-10 md:pb-6">
   <div *ngFor="let announcement of announcements">
     <!--Annoucement cards-->
     <announcement-card [announcement]="announcement"></announcement-card>

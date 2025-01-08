@@ -1,33 +1,46 @@
-import { Component, inject} from '@angular/core';
+import { Component, inject, OnInit} from '@angular/core';
 import { PageHeadingComponent } from '../page-heading/page-heading.component';
 import { AnnouncementCardComponent } from '../announcement-card/announcement-card.component';
 import { HomeSliderComponent } from '../home-slider/home-slider.component';
 import { Announcement } from '../model/announcement';
 import { CommonModule, NgFor } from '@angular/common';
 import { AnnouncementService } from '../services/announcement.service';
-import { ActivatedRoute } from '@angular/router';
+import { AuthSession, createClient, SupabaseClient } from '@supabase/supabase-js';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [PageHeadingComponent, AnnouncementCardComponent, HomeSliderComponent, CommonModule, NgFor],
+  imports: [AnnouncementCardComponent, HomeSliderComponent, CommonModule, NgFor],
   standalone: true,
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   announcements: Announcement[] = [];
+  supabase: SupabaseClient;
+  private _session: AuthSession | null = null;
+  user: any = null;
 
-constructor(private announcementService: AnnouncementService) { }
+  constructor(private announcementService: AnnouncementService) {
+    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+  }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.checkUser();
     this.fetchAnnouncements();
   }
-  async fetchAnnouncements() {
-    const announcements = await this.announcementService.getAnnouncements();
-    this.announcements = announcements as unknown as Announcement[];
+
+  async checkUser() {
+    const { data } = await this.supabase.auth.getSession();
+    this._session = data.session;
+    this.user = data.session?.user || null;
   }
 
+  async fetchAnnouncements() {
+    const announcements = await this.announcementService.getAnnouncements();
+    this.announcements = announcements || [];
+  }
 }
 
 

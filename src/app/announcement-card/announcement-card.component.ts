@@ -13,17 +13,18 @@ import { AnnouncementService } from '../services/announcement.service';
 
 
 export class AnnouncementCardComponent {
-  @Input() announcement!: Announcement;
-  announcementImage = "";
+ @Input() announcement!:Announcement;
+ announcementImage = "";
 
-  constructor(private announcementService: AnnouncementService) {
-
-  }
-/*   async ngOnInit(): Promise<void> {
-    const data = await this.announcementService.getAnnouncementImage(this.announcement.image);
-    if (!data) return;
-    this.announcementImage = data.publicUrl;
-
-  } */
+ constructor(private announcementService: AnnouncementService) {
+    
+ }
+ async ngOnInit(): Promise<void> {
+  const data = await this.announcementService.getAnnouncementImage(this.announcement.image);
+  if(!data) return;
+  this.announcementImage = data.publicUrl;
 
 }
+
+}
+
