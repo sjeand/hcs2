@@ -1,31 +1,50 @@
-<div class="size-full items-center p-10">
-    <div class="size-full bg-admin rounded-lg p-10">
+<div class="p-10">
+    <div class="bg-admin rounded-lg p-10">
         <h1 class="text-xl font-bold pb-2">Add New Gun Show</h1>
         <h2 class="text-lg pb-2">*** Enter text carefully as this is how it will be displayed directly onto the website
             ***</h2>
         <!--Form-->
-        <div class="max-w-sm space-y-3">
-            <form [formGroup]="gunshowForm" (ngSubmit)="addNewGunshow()">
+        <div class="flex">
+            <form class="grid grid-cols-2 gap-4" [formGroup]="gunshowForm" (ngSubmit)="addNewGunshow()">
+
                 <!--Insert Gunshow Name-->
-                <input formControlName="name" placeholder="Gun Show Name" required>
+                <label class="font-medium" for="name">* Gunshow Name: </label>
+                <input formControlName="name" required>
 
                 <!--Insert Location-->
-                <input formControlName="location" placeholder="Location" required>
+                <label class="font-medium" for="name">* Location: </label>
+                <input formControlName="location" required>
 
                 <!--Insert Product Time/Date-->
-                <textarea formControlName="date" class="" rows="4" placeholder="Date/Time..." required></textarea>
+                <div>
+                    <label class="font-medium" for="name">* Date & Times: <br></label>
+                    <p>Format:
+                        <br>
+                        January 1: 9 am - 5 pm
+                        <br>
+                        \n January 2: 9 am - 3 pm
+                        <br>
+                        \n January 3: 9 am - 3 pm
+                        <br>
+                        '\n' creates a new line
+                    </p>
+                </div>
+                <textarea formControlName="date" class="" rows="4" required></textarea>
 
                 <!--Insert website link-->
+                <label class="font-medium" for="name">Webiste Link: </label>
                 <input formControlName="detailsLink" placeholder="Website link">
 
-                <button type="submit" [disabled]="!gunshowForm.valid"
-                    class="mt-2 p-4 bg-adminAccent inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800">
-                    Submit
-                </button>
+                <div>
+                    <button type="submit" [disabled]="!gunshowForm.valid"
+                        class="mt-2 px-6 py-2 bg-adminAccent inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800">
+                        Submit
+                    </button>
+                </div>
+
+                <app-toast-message class="border b-2-adminAccent" *ngIf="showToast" [message]="toastMessage"></app-toast-message>
             </form>
-            <app-toast-message *ngIf="showToast" [message]="toastMessage"></app-toast-message>
-            <!--            <p>Form Value: {{ gunshowForm.value | json }}</p>
-            <p>Form Status: {{ gunshowForm.status }}</p> -->
+            
         </div>
 
 

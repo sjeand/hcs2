@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [AnnouncementCardComponent, HomeSliderComponent, CommonModule, NgFor],
+  imports: [AnnouncementCardComponent, HomeSliderComponent, CommonModule, NgFor, PageHeadingComponent],
   standalone: true,
 })
 

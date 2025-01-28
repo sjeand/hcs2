@@ -9,8 +9,8 @@ module.exports = {
         accent: '#b4654a',
         background: '#e0dad5',
         slider: '#e0dad5',
-        admin: '#88fe04',
-        adminAccent:'#F49E9E',
+        admin: '#FFFFFF',
+        adminAccent:'#ACFF83',
         adminDisabled: '#aaaaaa'
         
       },

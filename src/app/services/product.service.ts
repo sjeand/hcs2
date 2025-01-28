@@ -16,16 +16,19 @@ import {
 const productTypes = [
   {
     id: "handgun",
+    singularLabel: "Hand Gun",
     label: "All Hand Guns",
     subtypes: [{ id: "semiautomatic", label: "Semi Automatic" }, { id: "revolver", label: "Revolver" }],
   },
   {
     id: "longgun",
+    singularLabel: "Long Gun",
     label: "All Long Guns",
     subtypes: [{ id: "rifle", label: "Rifle" }, { id: "shotgun", label: "Shotgun" }],
   },
   {
     id: "other",
+    singularLabel: "Other",
     label: "Other",
     subtypes: [{ id: "ammunition", label: "Ammunition" }, { id: "accessory", label: "Accessory" }, { id: "part", label: "Part" }],
   },
@@ -143,5 +146,8 @@ export class ProductService {
 
   createProduct(product: ProductUpload) {
     /*  this.httpClient.post<ProductUpload>("/products", product); */
+  }
+  getTypes() {
+    return productTypes;
   }
 }

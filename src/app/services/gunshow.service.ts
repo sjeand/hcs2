@@ -9,6 +9,9 @@ import { Gunshow } from '../model/gunshow';
   providedIn: 'root'
 })
 export class GunshowService {
+  deleteGunshow(id: number): { data: any; error: any; } | PromiseLike<{ data: any; error: any; }> {
+    throw new Error('Method not implemented.');
+  }
   private supabase: SupabaseClient;
   _session: AuthSession | null = null;
   

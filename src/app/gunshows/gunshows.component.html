@@ -3,11 +3,19 @@
 
     <page-heading title="Upcoming Gunshows"></page-heading>
 
-    <div class="flex flex-col">
-        <div class="">
-            <div class="min-w-full inline-block align-middle md:pb-4 md:px-14 p-2">
+    <div class="md:flex md:flex-col">
+        <div >
+            <div class="">
+                <app-toast-message class="border b-2-adminAccent" *ngIf="toastMessage != ''"
+                    [message]="toastMessage">
+                </app-toast-message>
+                <app-confirmation-dialog *ngIf="showConfirmationDialog"
+                    (confirmed)="deleteGunshow($event)">
+                </app-confirmation-dialog>
+            </div>
+            <div class="md:min-w-full md:inline-block align-middle md:pb-4 md:px-14 p-2">
                 <div class="bg-white">
-                    <table class="min-w-full divide-y bg-white divide-neutral-400">
+                    <table class="md:min-w-full divide-y bg-white divide-neutral-400">
                         <thead>
                             <tr class="md:text-xl md:tracking-wide bg-secondary font-body">
                                 <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
@@ -15,13 +23,12 @@
                                 <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
                                     Location</th>
                                 <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
-                                    Date & Time</th>
+                                    Dates & Times</th>
                                 <th scope="col" class="text-start p-2 font-medium md:tracking-wide">
                                     Details</th>
-                                <th scope="col" *ngIf="isAdmin" class="text-start p-2 font-medium md:tracking-wide">
-                                    Delete</th>
-                                <th scope="col" *ngIf="isAdmin" class="text-start p-2 font-medium md:tracking-wide">
-                                    Edit</th>
+                                <th *ngIf="isAdmin" scope="col" class="text-start p-2 font-medium md:tracking-wide">
+                                    Admin</th>
+
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-neutral-400">
@@ -29,11 +36,23 @@
                                 <td class="text-start p-2 md:text-lg"> {{ gunshow.name }} </td>
                                 <td class="text-start p-2 md:text-lg"> {{ gunshow.location }} </td>
                                 <td class="text-start p-2 md:text-lg" [innerHTML]="gunshow.date"></td>
-                                <td class="text-start p-2 md:text-lg"> <a *ngIf="gunshow.detailsLink"
-                                        class="underline underline-offset-4" [href]="gunshow.detailsLink"
-                                        target="_blank" rel="noopener noreferrer">Click here for more details</a> </td>
-                                <td class="text-start p-2 md:text-lg" *ngIf="isAdmin"><i class="fa fa-trash"></i></td>
-                                <td class="text-start p-2 md:text-lg" *ngIf="isAdmin"><i class="fa fa-edit"></i></td>
+                                <td class="text-start p-2 md:text-lg">
+                                    <a *ngIf="gunshow.detailsLink" class="underline underline-offset-4"
+                                        [href]="gunshow.detailsLink" target="_blank" rel="noopener noreferrer">
+                                        Click here for more details</a>
+                                </td>
+                                <td *ngIf="isAdmin" class="text-start p-2 md:text-lg">
+
+                                    <button (click)="confirmDelete( gunshow.id )" class="icon-button">
+
+                                        <i class="fa fa-trash px-2"></i>
+                                        Delete
+                                    </button>
+                                    <button class="icon-button">
+                                        <i class="fa fa-edit px-2"></i>
+                                        Edit
+                                    </button>
+                                </td>
 
                             </tr>
 

@@ -1,108 +1,68 @@
-
-
-<div class="size-full items-center p-10">
-    <div class="size-full bg-admin rounded-lg p-10">
+<div class="p-10">
+    <div class=" w-5/6 bg-admin rounded-lg p-10">
         <h1 class="text-xl font-bold pb-2">Add New Product</h1>
-        <h2 class="text-lg pb-2">*** Enter text carefully as this is how it will be displayed directly onto the website ***</h2>
+        <h2 class="text-lg pb-4">*** Enter text carefully as this is how it will be displayed directly onto the website
+            ***</h2>
+        <div class="grid grid-cols-3 gap-4">
 
-        <div class="max-w-sm space-y-3">
-            <!--Insert Maker-->
-            <input type="text" placeholder="Maker">
-            <!--Insert Model-->
-            <input type="text" placeholder="Model">
-            <!--Insert Price-->
-            <input type="text" placeholder="Price">
 
-            <!--Insert Photo-->
-            <form action="/action_page.php">
-                <input type="file" id="myFile" name="filename">
-                <input type="submit">
+            <form class="col-span-3 grid grid-cols-3 gap-4" [formGroup]="productForm!" (ngSubmit)="addNewProduct()">
+
+                <!--Insert Maker-->
+                <label class="font-medium " for="maker">* Maker: </label>
+                <input formControlName="maker" class="col-span-2" type="text">
+
+                <!--Insert Model-->
+                <label class="font-medium " for="model">* Model: </label>
+                <input formControlName="model" class="col-span-2" type="text">
+
+                <!--Insert Price-->
+                <label class="font-medium " for="price">* Price: </label>
+                <div class="col-span-2"><span>$</span><input formControlName="price" class="w-5/6" type="number">
+                </div>
+                <label class="font-medium " for="type">* Type: </label>
+                <div class="col-span-2">
+                    <select formControlName="type" class="w-full">
+                        <option *ngFor="let option of typeOptions" [value]="option.id">
+                            {{ option.singularLabel }}
+                        </option>
+                    </select>
+                </div>
+
+                <label class="font-medium " for="subtype">* Subtype: </label>
+                <div class="col-span-2">
+                    <select formControlName="subtype" class="w-full">
+                        <option *ngFor="let option of subtypeOptions" [value]="option.id">
+                            {{ option.label }}
+                        </option>
+                    </select>
+                </div>
+                <!--Insert Photo-->
+
+                <label class="font-medium " for="filename">Image:
+                    <br>
+                    <p class="font-normal ">
+                        *** Images need to be cropped to 'square' dimensions for best display. <br>
+                        *** if no image is selected a placeholder image<br>
+                        will be automatical assigned...</p>
+                </label>
+                <input formControlName="image" class="col-span-2" type="file" id="myFile" name="filename" (change)="onImageChange($event)">
+
+                <!--Insert Product Description-->
+                <label class="font-medium " for="description">* Description: </label>
+                <textarea formControlName="description" class="col-span-2 w-full" rows="4"></textarea>
+
+                <button type="submit"
+                    class="mt-2 p-4 items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800 bg-adminAccent">
+                    Add New Product
+                </button>
             </form>
 
-            <!--Insert Product Description-->
-            <textarea class="" rows="4" placeholder="Insert Product Description..."></textarea>
-        </div>
-
-        <!--Drop Down for product Type-->
-        <div class="hs-dropdown relative inline-flex p-1">
-            <button id="hs-dropdown-default" type="button"
-                class="hs-dropdown-toggle py-3 px-4 inline-flex items-center bg-white" aria-haspopup="menu"
-                aria-expanded="false" aria-label="Dropdown">
-                Type
-                <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m6 9 6 6 6-6" />
-                </svg>
-            </button>
-            <!--Drop Down Options-->
-            <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
-                role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
-                <div class="p-1 space-y-0.5">
-                    <a class="flex items-center" href="#">
-                        Hand Gun
-                    </a>
-                    <a class="flex items-center" href="#">
-                        Long Gun
-                    </a>
-                    <a class="flex items-center" href="#">
-                        Other
-                    </a>
-                </div>
-            </div>
-
-        </div>
-        <!--Drop Down for product Sub Type-->
-        <div>
-            <div class="hs-dropdown relative inline-flex p-1">
-                <button id="hs-dropdown-default" type="button"
-                    class="hs-dropdown-toggle py-3 px-4 inline-flex items-center bg-white" aria-haspopup="menu"
-                    aria-expanded="false" aria-label="Dropdown">
-                    Sub Type
-                    <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="m6 9 6 6 6-6" />
-                    </svg>
-                </button>
-                <!--Drop Down Options-->
-                <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
-                    role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-default">
-                    <div class="p-1 space-y-0.5">
-                        <a class="flex items-center" href="#">
-                            Revolver
-                        </a>
-                        <a class="flex items-center" href="#">
-                            Semi-Auto
-                        </a>
-                        <a class="flex items-center" href="#">
-                            Rifle
-                        </a>
-                        <a class="flex items-center" href="#">
-                            Shotgun
-                        </a>
-                        <a class="flex items-center" href="#">
-                            Accessory
-                        </a>
-                        <a class="flex items-center" href="#">
-                            Ammo
-                        </a>
-                        <a class="flex items-center" href="#">
-                            Part
-                        </a>
-                        <a class="flex items-center" href="#">
-                            Other
-                        </a>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
 
-        <button type="button"
-            class="mt-2 p-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800 bg-adminAccent">
-            Submit
-        </button>
+        <app-toast-message class="border b-2-adminAccent" *ngIf="showToast"
+            [message]="toastMessage"></app-toast-message>
+
     </div>
-</div>
