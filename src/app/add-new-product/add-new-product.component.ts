@@ -43,24 +43,31 @@ export class AddNewProductComponent {
       this.subtypeOptions = this.typeOptions.find(option => option.id === type)?.subtypes || [];
     });
   };
-  stripPath(path: string) {
-    return path.split('\\').pop() || '';
-  }
+  
   async addNewProduct() {
-    const product ={
+    let image = this.productForm?.value.image;
+    if (!!image){
+      if(typeof image === 'object'){
+        image = image.path;
+      } else{
+        image = image.split('\\').pop();
+      }
+    }
+      
+    const product = {
       ...this.productForm?.value,
-      image: this.stripPath(this.productForm?.value.image)
+      image
     }
     const { error } = await this.supabase
       .from('products')
-      .insert(this.productForm?.value)
+      .insert(product);
     if (!error) {
-      this.toastMessage = `New product "${this.productForm?.value.nmaker}${this.productForm?.value.model}" was added`;
+      this.toastMessage = `New product "${product.maker} ${product.model}" was added`;
       this.productForm?.reset(); // Reset the form
       this.showToast = true;
       setTimeout(() => {
         this.showToast = false;
-      }, 3000);
+      }, 5000);
     } else {
       console.error('Error inserting product:', error);
     }
@@ -68,13 +75,19 @@ export class AddNewProductComponent {
   async onImageChange($event: Event) {
     const input = $event.target as HTMLInputElement;
     const imageFile = input.files?.[0];
-    const bucket = 'product_images';
-    const { data, error } = await this.supabase
-      .storage
-      .from(bucket)
-      .upload(imageFile?.name!, imageFile!, {
-        cacheControl: '3600',
-        upsert: false
-      })
+    if(!imageFile) return;
+    const { data, error } = await this.productService.uploadImage(imageFile);
+    let image = data;
+    if(error) {
+      if((error as any)?.statusCode == 409){
+        image = {path: imageFile.name, id: '', fullPath: imageFile.name};
+      }
+      else {
+        console.error('Error uploading image:', error);
+        return;
+      }
+    }
+    this.productForm?.patchValue({ image });
+
   }
 }

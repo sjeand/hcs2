@@ -2,7 +2,7 @@
 
     <!--Product Image-->
     <div class="md:row-span-3 ...">
-        <img class="w-full h-96 border-b-2" [src]="productImage"/>
+        <img class="w-full h-96 border-b-2" [src]="productImage" />
     </div>
 
     <!--Title: Product Maker and Model-->
@@ -12,15 +12,38 @@
             {{ product?.maker }}
         </div>
         <div class="text-3xl tracking-wide
-        md:text-3xl "> {{ product?.model }}  </div>
+        md:text-3xl "> {{ product?.model }} </div>
         <div class="text-3xl tracking-wide
         md:text-2xl "> {{ product?.price | currency }} </div>
 
     </div>
+    <div class="md:row-span-2 md:col-span-2 text-lg">
+        <div>
+            {{ product?.description }}
+        </div>
+        <div class="py-8">
+            For more information or to see the
+            <span class="font-semibold">
+                {{product?.maker}} {{product?.model}}
+            </span>
+            in person,
+            <br>
+            <span class="italic font-semibold">shoot</span> Rick an email or call/text today...
+            <br>
+            <div class="flex flex-row pt-4">
+                <button class="px-8 underline underline-offset-4">
+                    <i class="fa fa-envelope underline underline-offset-4"></i>
+                    Email Us
+                </button>
+                <div class="px-8 underline underline-offset-4">
+                    <i class="fa fa-phone underline underline-offset-4"></i>
+                    701-527-0186
+                </div>
+            </div>
+        </div>
 
-    <div class="md:row-span-2 md:col-span-2 ...">
-        {{ product?.description }}
     </div>
+
 
 
 </div>

@@ -40,6 +40,7 @@ const productTypes = [
   providedIn: 'root'
 })
 export class ProductService {
+ 
   private supabase: SupabaseClient;
   _session: AuthSession | null = null;
   constructor() { this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey) }
@@ -149,5 +150,14 @@ export class ProductService {
   }
   getTypes() {
     return productTypes;
+  }
+
+  async uploadImage(imageFile: File) {
+    const bucket = 'product_images';
+    return await this.supabase
+      .storage
+      .from(bucket)
+      .upload(imageFile.name, imageFile)
+    
   }
 }

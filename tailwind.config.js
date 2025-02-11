@@ -10,7 +10,7 @@ module.exports = {
         background: '#e0dad5',
         slider: '#e0dad5',
         admin: '#FFFFFF',
-        adminAccent:'#ACFF83',
+        adminAccent:'#4DF14A',
         adminDisabled: '#aaaaaa'
         
       },

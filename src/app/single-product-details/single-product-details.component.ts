@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './single-product-details.component.scss'
 })
 export class SingleProductDetailsComponent {
+product: any;
 
 }
