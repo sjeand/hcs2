@@ -1,7 +1,6 @@
-
 <div class="items-center p-10">
-<div class="bg-admin rounded-lg p-10">
-  <h1 class="text-xl font-bold pb-2">Administration Login</h1>
+  <div class="bg-admin rounded-lg p-10">
+    <h1 class="text-xl font-bold pb-2">Administration Login</h1>
 
     <form class="inline space-y-3" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div>
@@ -11,19 +10,28 @@
           <!-- <small *ngIf="loginForm.get('username')?.errors.required">Username is required</small> -->
         </div>
       </div>
-  
+
       <div>
         <label for="password" class="p-2">Password</label>
-        <input required id="password" type="password" formControlName="password" />
+        <input required id="password" type="password" formControlName="password" [type]="showPassword ? 'text' : 'password'"/>
+        <button class="mx-2" type="button" (click)="togglePasswordVisibility()">
+        {{ showPassword ? 'Hide' : 'Show' }}
+        </button>
+
         <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+
           <!-- <small *ngIf="(loginForm.get('password') as any).errors?.['required']">Password is required</small>
           <small *ngIf="loginForm.get('password')?.errors.minlength">Password must be at least 6 characters long</small> -->
         </div>
+
       </div>
       <div class="text-red-600" *ngIf="errorMessage !== ''">
         {{ errorMessage }}
       </div>
-      <button class="mt-2 p-4 bg-adminAccent inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800" type="submit" [disabled]="loginForm.invalid || errorMessage !== ''" [ngClass]="{'bg-adminDisabled': loginForm.invalid  || errorMessage !== ''}" >Login</button> 
+      <button
+        class="mt-2 p-4 bg-adminAccent inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800"
+        type="submit" [disabled]="loginForm.invalid || errorMessage !== ''"
+        [ngClass]="{'bg-adminDisabled': loginForm.invalid  || errorMessage !== ''}">Login</button>
       <!--  type="submit" [disabled]="loginForm?.invalid">-->
     </form>
   </div>

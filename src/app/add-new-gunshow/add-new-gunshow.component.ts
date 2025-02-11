@@ -32,7 +32,8 @@ export class AddNewGunshowComponent {
           name: ['', [Validators.required]],
           location: ['', [Validators.required]],
           date: ['', [Validators.required]],
-          detailsLink: ['', []]
+          detailsLink: ['', []],
+          startDate: ['', [Validators.required]]
         });
   };
 

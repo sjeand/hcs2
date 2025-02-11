@@ -16,6 +16,9 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
   styleUrl: './gunshows.component.scss'
 })
 export class GunshowsComponent {
+editGunshow(arg0: number) {
+throw new Error('Method not implemented.');
+}
   gunshows: Gunshow[] = [];
   isAdmin: boolean = false;
   private supabase: SupabaseClient;
@@ -46,6 +49,9 @@ export class GunshowsComponent {
       ...show,
       date: show.date.replaceAll('\\n', '<br>')
     })) as Gunshow[];
+
+    // Sort gunshows by startDate
+    this.gunshows.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
   }
 
   confirmDelete(id: number) {
@@ -72,5 +78,5 @@ export class GunshowsComponent {
     this.showConfirmationDialog = false;
     this.gunshowToDelete = null;
   }
-  
+
 }

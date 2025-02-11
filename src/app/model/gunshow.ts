@@ -4,5 +4,5 @@ id: number;
   date: string;
   location: string;
   detailsLink?: string;
-  
+  startDate: Date; 
 }

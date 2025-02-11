@@ -19,6 +19,7 @@ export class LoginPageComponent {
     _session: AuthSession | null = null;
   errorMessage ='';
   user: any = null;
+  showPassword = false;
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
@@ -56,4 +57,8 @@ export class LoginPageComponent {
     this._session = data.session;
     this.user = data.session?.user || null;
   }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+    }
 }
