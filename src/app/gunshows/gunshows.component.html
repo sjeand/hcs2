@@ -4,12 +4,11 @@
     <page-heading title="Upcoming Gunshows"></page-heading>
 
     <div class="md:flex md:flex-col">
-        <div >
+        <div>
             <div class="">
-                <app-toast-message class="border b-2-adminAccent" *ngIf="toastMessage != ''"
-                    [message]="toastMessage">
+                <app-toast-message class="border b-2-adminAccent" *ngIf="toastMessage != ''" [message]="toastMessage">
                 </app-toast-message>
-                <app-confirmation-dialog *ngIf="showConfirmationDialog"
+                <app-confirmation-dialog *ngIf="showConfirmationDialog" [gunshow]="gunshowToDelete"
                     (confirmed)="deleteGunshow($event)">
                 </app-confirmation-dialog>
             </div>
@@ -43,7 +42,7 @@
                                 </td>
                                 <td *ngIf="isAdmin" class="text-start p-2 md:text-lg">
 
-                                    <button (click)="confirmDelete( gunshow.id )" class="icon-button">
+                                    <button (click)="confirmDelete( gunshow )" class="icon-button">
 
                                         <i class="fa fa-trash px-2"></i>
                                         Delete

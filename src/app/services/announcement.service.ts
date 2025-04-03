@@ -30,16 +30,12 @@ export class AnnouncementService {
     return data;
   }
 
-
     async getAnnouncements() {
       let results =  await this.supabase
           .from('announcements')
           .select();
-        return results?.data;
-      
+        return results?.data;   
     }
 
-    createAnnouncement(announcement: Announcement) {
-      }
-
+    createAnnouncement(announcement: Announcement) {}
 }

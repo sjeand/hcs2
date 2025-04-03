@@ -5,7 +5,6 @@
             ***</h2>
         <div class="grid grid-cols-3 gap-4">
 
-
             <form class="col-span-3 grid grid-cols-3 gap-4" [formGroup]="productForm!" (ngSubmit)="addNewProduct()">
 
                 <!--Insert Maker-->
@@ -37,6 +36,11 @@
                         </option>
                     </select>
                 </div>
+
+                <!--Insert Product Description-->
+                <label class="font-medium " for="description">* Description: </label>
+                <textarea formControlName="description" class="col-span-2 w-full" rows="4"></textarea>
+
                 <!--Insert Photo-->
 
                 <label class="font-medium " for="filename">Image:
@@ -44,25 +48,28 @@
                     <p class="font-normal ">
                         *** Images need to be cropped to 'square' dimensions for best display. <br>
                         *** if no image is selected a placeholder image<br>
-                        will be automatical assigned...</p>
+                        will be automatically assigned...</p>
                 </label>
-                <input formControlName="image" class="col-span-2" type="file" id="myFile" name="filename" (change)="onImageChange($event)">
+                <div class="col-span-2">
+                    <input formControlName="image" type="file" id="myFile" name="filename"
+                        (change)="onImageChange($event)">
 
-                <!--Insert Product Description-->
-                <label class="font-medium " for="description">* Description: </label>
-                <textarea formControlName="description" class="col-span-2 w-full" rows="4"></textarea>
+                    <img *ngIf="productImage" class=" border-b-2" [src]="productImage" alt="Product Image" height="100"
+                        width="100" />
+                    <div *ngIf ="isEditing()">
+                        {{ productImage ? productImage.split("/").slice(-1)[0] : 'No image selected' }}
+                    </div>
+                </div>
 
                 <button type="submit"
                     class="mt-2 p-4 items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800 bg-adminAccent">
-                    Add New Product
+                    {{ isEditing() ? 'Update Product' : 'Add New Product' }}
                 </button>
             </form>
 
-
         </div>
 
-
-        <app-toast-message class="border b-2-adminAccent" *ngIf="showToast"
-            [message]="toastMessage"></app-toast-message>
+        <app-toast-message class="border b-2-adminAccent" *ngIf="showToast" [message]="toastMessage">
+        </app-toast-message>
 
     </div>

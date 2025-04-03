@@ -9,11 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class PageHeadingComponent {
   @Input() title = "";
-  constructor(
-   
-  ) {
-  
-  }
+  constructor() {}
 }
 
 

@@ -140,14 +140,42 @@ export class ProductService {
           .select();
         break;
     }
-    return results?.data;
-
-    
+    return results?.data;   
   }
 
-  createProduct(product: ProductUpload) {
-    /*  this.httpClient.post<ProductUpload>("/products", product); */
+  async updateProduct(product: Partial <ProductUpload>) {
+    const id = product.id;
+    delete product.id;
+    return await this.supabase
+      .from('products')
+      .update(product)
+      .eq('id', id);
   }
+
+  async createProduct(product: ProductUpload) {
+    return await this.supabase
+        .from('products')
+        .insert(product);
+  }
+
+  async deleteProduct(id: number) {
+    return await this.supabase
+        .from('products')
+        .delete().eq('id', id);
+  }
+
+  async getProduct(id: number) {
+   /*  const idNumber = parseInt(id); */
+    const { data, error } = await this.supabase
+        .from('products')
+        .select()
+        .eq('id', id);
+    if (error) {
+      console.error('Error getting product:', error.message);
+    }
+    return data?.[0];
+  }
+
   getTypes() {
     return productTypes;
   }
@@ -157,7 +185,14 @@ export class ProductService {
     return await this.supabase
       .storage
       .from(bucket)
-      .upload(imageFile.name, imageFile)
-    
+      .upload(imageFile.name, imageFile) 
+  }
+
+  async getImage(imageFileName: string) {
+    const bucket = 'product_images';
+    return await this.supabase
+      .storage
+      .from(bucket)
+      .download(imageFileName) 
   }
 }

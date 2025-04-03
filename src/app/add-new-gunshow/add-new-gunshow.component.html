@@ -29,7 +29,7 @@
                         '\n' creates a new line
                     </p>
                 </div>
-               
+
                 <textarea formControlName="date" class="" rows="4" required></textarea>
 
                 <!--Insert website link-->
@@ -47,12 +47,11 @@
                     </button>
                 </div>
 
-                <app-toast-message class="border b-2-adminAccent" *ngIf="showToast" [message]="toastMessage"></app-toast-message>
+                <app-toast-message class="border b-2-adminAccent" *ngIf="showToast"
+                    [message]="toastMessage">
+                </app-toast-message>
+
             </form>
-            
         </div>
-
-
-
     </div>
 </div>

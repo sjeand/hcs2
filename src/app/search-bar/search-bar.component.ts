@@ -17,7 +17,8 @@ export class SearchBarComponent {
   searchChange() {
     // this.router.navigate(["product-page", {searchText:this.searchText}])
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(["product-page", {searchText:this.searchText}])});
+      this.router.navigate(["product-page", { searchText: this.searchText }])
+    });
   }
-}import { FormsModule } from '@angular/forms';
+} import { FormsModule } from '@angular/forms';
 

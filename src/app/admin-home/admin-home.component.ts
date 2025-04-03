@@ -15,12 +15,12 @@ import { environment } from '../../environments/environment';
 export class AdminHomeComponent {
   private supabase: SupabaseClient;
 
-  constructor(private router: Router){
+  constructor(private router: Router) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
   }
-  
- async signOut() {
-  const { error } = await this.supabase.auth.signOut();
-  this.router.navigate(["login"]);
- }
+
+  async signOut() {
+    const { error } = await this.supabase.auth.signOut();
+    this.router.navigate(["login"]);
+  }
 }

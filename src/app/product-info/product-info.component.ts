@@ -24,10 +24,8 @@ export class ProductInfoComponent {
         this.product = prod;
         this.initImage();
       });
-
-
-
   }
+  
   async initImage() {
     const data = await this.productService.getProductImage(this.product?.image);
     if (!data) return;

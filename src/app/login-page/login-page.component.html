@@ -13,16 +13,13 @@
 
       <div>
         <label for="password" class="p-2">Password</label>
-        <input required id="password" type="password" formControlName="password" [type]="showPassword ? 'text' : 'password'"/>
+        <input required id="password" type="password" formControlName="password"
+          [type]="showPassword ? 'text' : 'password'" />
         <button class="mx-2" type="button" (click)="togglePasswordVisibility()">
-        {{ showPassword ? 'Hide' : 'Show' }}
+          {{ showPassword ? 'Hide' : 'Show' }}
         </button>
 
-        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-
-          <!-- <small *ngIf="(loginForm.get('password') as any).errors?.['required']">Password is required</small>
-          <small *ngIf="loginForm.get('password')?.errors.minlength">Password must be at least 6 characters long</small> -->
-        </div>
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"></div>
 
       </div>
       <div class="text-red-600" *ngIf="errorMessage !== ''">

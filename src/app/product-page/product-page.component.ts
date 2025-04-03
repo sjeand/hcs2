@@ -29,11 +29,17 @@ export class ProductPageComponent {
   }
   async fetchProducts() {
     const products = await this.productService.getProducts(this.filterType, this.searchText);
+    products?.sort((a: Product, b: Product) => a.maker.localeCompare(b.maker));
     this.products = products as Product[];
   }
 
   onFilterClicked(filterType: string) {
     this.filterType = filterType;
+    this.fetchProducts();
+  };
+
+  async handleDeleteClick(productId: number) {
+    await this.productService.deleteProduct(productId);
     this.fetchProducts();
   };
 }

@@ -16,20 +16,16 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
   styleUrl: './gunshows.component.scss'
 })
 export class GunshowsComponent {
-editGunshow(arg0: number) {
-throw new Error('Method not implemented.');
-}
   gunshows: Gunshow[] = [];
   isAdmin: boolean = false;
   private supabase: SupabaseClient;
   toastMessage: string = '';
   showConfirmationDialog: boolean = false;
-  gunshowToDelete: number | null = null;
+  gunshowToDelete: Gunshow | null = null;
 
   constructor(private gunshowService: GunshowService) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
   }
-
 
   async ngOnInit(): Promise<void> {
     await this.checkAdmin();
@@ -54,16 +50,15 @@ throw new Error('Method not implemented.');
     this.gunshows.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
   }
 
-  confirmDelete(id: number) {
-    this.gunshowToDelete = id;
+  confirmDelete(gunshow: Gunshow) {
+    this.gunshowToDelete = gunshow;
     this.showConfirmationDialog = true;
   }
 
-
   async deleteGunshow(confirmed: boolean) {
     if (confirmed && this.gunshowToDelete !== null) {
-      console.log('Deleting gunshow with id:', this.gunshowToDelete); // Debugging: Log the id being deleted
-      const { data, error } = await this.supabase.from('gunshows').delete().eq('id', this.gunshowToDelete);
+      console.log('Deleting gunshow named: ', this.gunshowToDelete.name); // Debugging: Log the id being deleted
+      const { data, error } = await this.gunshowService.deleteGunshow(this.gunshowToDelete.id);
       if (error) {
         console.error('Error deleting gunshow:', error.message);
       } else {
@@ -79,4 +74,5 @@ throw new Error('Method not implemented.');
     this.gunshowToDelete = null;
   }
 
+  editGunshow(id: number) {}
 }

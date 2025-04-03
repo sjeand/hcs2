@@ -1,8 +1,8 @@
-import { Input, Component } from '@angular/core';
+import { Input, Component, Output, EventEmitter } from '@angular/core';
 import { Product } from '../model/product';
 import { CurrencyPipe, NgIf } from '@angular/common';
 import { ProductService } from '../services/product.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
@@ -18,8 +18,9 @@ export class ProductCardComponent {
   productImage = "";
   isAdmin: boolean = false;
   private supabase: SupabaseClient;
+  @Output() deleteClicked = new EventEmitter<number>();
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
   }
   async ngOnInit(): Promise<void> {
@@ -35,5 +36,19 @@ export class ProductCardComponent {
       this.isAdmin = true;
     }
   }
+  
+  //[routerLink]="['edit-product', product.id]"
+  onEditClick(event: MouseEvent) {
+    event.stopPropagation();
+  }
+
+  async onDeleteClick(event: MouseEvent) {
+   
+    // await this.productService.deleteProduct(this.product.id!);
+    // this.router.navigate(['/product-page']);
+    // event.stopPropagation();
+    this.deleteClicked.emit(this.product.id!);
+  }
+  
 
 }

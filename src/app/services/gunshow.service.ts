@@ -9,9 +9,7 @@ import { Gunshow } from '../model/gunshow';
   providedIn: 'root'
 })
 export class GunshowService {
-  deleteGunshow(id: number): { data: any; error: any; } | PromiseLike<{ data: any; error: any; }> {
-    throw new Error('Method not implemented.');
-  }
+ 
   private supabase: SupabaseClient;
   _session: AuthSession | null = null;
   
@@ -28,10 +26,13 @@ export class GunshowService {
     let results =  await this.supabase
         .from('gunshows')
         .select();
-      return results?.data;
-    
+      return results?.data; 
   }
 
+  async deleteGunshow(id: number) {
+    return await this.supabase.from('gunshows').delete().eq('id', id);
+  }
+  
   createGunshow(gunshow: Gunshow) {
     /*  this.httpClient.post<ProductUpload>("/products", product); */
   }

@@ -20,27 +20,27 @@ export class AddNewGunshowComponent {
 
   private supabase: SupabaseClient;
   gunshowForm: FormGroup;
+  isEditing = false;
   showToast = false;
   toastMessage = "";
 
-  constructor(private fb: FormBuilder, private router: Router,
-    private gunshowService: GunshowService,
-    
-  ) {
+  constructor(private fb: FormBuilder, private router: Router, private gunshowService: GunshowService,) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
+
+
     this.gunshowForm = this.fb.group({
-          name: ['', [Validators.required]],
-          location: ['', [Validators.required]],
-          date: ['', [Validators.required]],
-          detailsLink: ['', []],
-          startDate: ['', [Validators.required]]
-        });
+      name: ['', [Validators.required]],
+      location: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      detailsLink: ['', []],
+      startDate: ['', [Validators.required]]
+    });
   };
 
-   async addNewGunshow(){
+  async addNewGunshow() {
     const { error } = await this.supabase
-    .from('gunshows')
-    .insert(this.gunshowForm?.value)
+      .from('gunshows')
+      .insert(this.gunshowForm?.value)
     if (!error) {
       this.toastMessage = `New gun show "${this.gunshowForm?.value.name}" was added`;
       this.gunshowForm.reset(); // Reset the form
@@ -51,5 +51,5 @@ export class AddNewGunshowComponent {
     } else {
       console.error('Error inserting gunshow:', error);
     }
-   } 
+  }
 }

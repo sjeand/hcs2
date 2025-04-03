@@ -15,9 +15,9 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent {
   loginForm: FormGroup;
-   private supabase: SupabaseClient;
-    _session: AuthSession | null = null;
-  errorMessage ='';
+  private supabase: SupabaseClient;
+  _session: AuthSession | null = null;
+  errorMessage = '';
   user: any = null;
   showPassword = false;
 
@@ -36,20 +36,20 @@ export class LoginPageComponent {
   async onSubmit() {
     if (this.loginForm.valid) {
       this.errorMessage = '';
-      const creds =  this.loginForm.value;
+      const creds = this.loginForm.value;
       // Handle form submission, e.g., send data to the server
-      
+
       const { data, error } = await this.supabase.auth.signInWithPassword(
         { email: creds.username, password: creds.password }
-    );
-    if (!error){
-      this.user = data.user;
-      //this is where we will redirect to admin form
-      this.router.navigate(["home"]);
-    } else {
-      this.errorMessage = error.message;
-    }
-    
+      );
+      if (!error) {
+        this.user = data.user;
+        //this is where we will redirect to admin form
+        this.router.navigate(["home"]);
+      } else {
+        this.errorMessage = error.message;
+      }
+
     }
   }
   async checkUser() {
@@ -60,5 +60,5 @@ export class LoginPageComponent {
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
-    }
+  }
 }

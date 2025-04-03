@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet, NavigationEnd, Router, Event} from '@angular/router';
+import { RouterOutlet, NavigationEnd, Router, Event } from '@angular/router';
 import { AppFooterComponent } from './app-footer/app-footer.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { AppLogoComponent } from './app-logo/app-logo.component';
-import { ProductPageComponent } from './product-page/product-page.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppTitleComponent } from './app-title/app-title.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { ProductNavbarComponent } from './product-navbar/product-navbar.component';
-import { AnnouncementCardComponent } from './announcement-card/announcement-card.component';
 import { IStaticMethods } from 'preline/preline';
-import { PageHeadingComponent } from "./page-heading/page-heading.component";
 
 declare global {
   interface Window {
@@ -20,14 +13,11 @@ declare global {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLinkActive, RouterLink, AppFooterComponent, AppNavbarComponent, AppLogoComponent,
-    ProductPageComponent, PageNotFoundComponent, AppTitleComponent, SearchBarComponent, ProductNavbarComponent,
-    AnnouncementCardComponent, PageHeadingComponent],
-    /*Router is upset due to new code added for preline - routes working but all red line 34 */
+  imports: [RouterOutlet, AppFooterComponent, AppNavbarComponent, 
+    AppTitleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
- /*  template: `<div> hi </div>` */
- standalone: true
+  standalone: true
 })
 
 export class AppComponent {

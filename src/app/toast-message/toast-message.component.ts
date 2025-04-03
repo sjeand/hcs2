@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './toast-message.component.html',
   styleUrl: './toast-message.component.scss'
 })
+
 export class ToastMessageComponent {
  @Input() message = "";
-
 }

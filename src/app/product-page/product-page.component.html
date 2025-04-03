@@ -3,14 +3,14 @@
 <product-navbar (onFilterClicked)="onFilterClicked($event)"></product-navbar>
 
 <!--Product Cards to be displayed in grid-->
-<div class="grid md:grid-cols-4 gap-4 m-4">
+<div 
+class="m-2 w-96
+lg:w-full lg:grid lg:grid-cols-4 lg:gap-4 lg:m-4">
   <div *ngFor="let product of products">
     <div class="mr-2">
-      <product-card [product]="product"></product-card>
+      <product-card [product]="product" (deleteClicked)="handleDeleteClick($event)"></product-card>
     </div>
   </div>
-
-
 </div>
 
 <div *ngIf="!products.length && filterType !== 'all'" class="text-center p-10 text-xl">No matching products were found</div>
