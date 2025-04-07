@@ -30,7 +30,8 @@ export class GunshowService {
   }
 
   async deleteGunshow(id: number) {
-    return await this.supabase.from('gunshows').delete().eq('id', id);
+    return await this.supabase.from('gunshows')
+    .delete().eq('id', id);
   }
   
   createGunshow(gunshow: Gunshow) {

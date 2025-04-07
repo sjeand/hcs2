@@ -1,46 +1,73 @@
-<div class="w-96
-md:grid md:grid-rows-3 md:grid-flow-col md:gap-4 md:p-10 p-4">
+<!--Div to hold all content, Large screens will divide to 4 columns-->
+<div class="
+    w-96 p-4
+    lg:w-full lg:grid lg:grid-cols-4 lg:gap-4 lg:m-4
+    ">
 
-    <!--Product Image-->
-    <div class="md:row-span-3 ...">
-        <img class="w-full h-96 border-b-2" [src]="productImage" />
+    <!--Product Image, Large: Column 1-->
+    <div class="
+        lg:w-3/5 lg:col-span-2">
+        <img [src]="productImage"
+        class="
+        w-full h-96 border-b-2
+        lg:h-auto
+        "/>
     </div>
+    <!--END: Product Image-->
 
-    <!--Title: Product Maker and Model-->
-    <div class="md:col-span-2 ... pb-2">
-        <div class="text-3xl tracking-wide
-            md:text-4xl font-semibold">
-            {{ product?.maker }}
-        </div>
-        <div class="text-3xl tracking-wide
-        md:text-3xl "> {{ product?.model }} </div>
-        <div class="text-3xl tracking-wide
-        md:text-2xl "> {{ product?.price | currency }} </div>
+    <!--Product Info, Large: Column 2-->
+    <div class="
+        lg:w-full lg:col-span-2 lg:float-left">
 
-    </div>
-    <div class="md:row-span-2 md:col-span-2 text-lg">
+        <!--Title: Product Maker, Model, Price-->
         <div>
-            {{ product?.description }}
+            <div class="
+            text-3xl tracking-wide font-semibold
+            lg:text-4xl 
+            ">
+                {{ product?.maker }}
+            </div>
+
+            <div class="
+            text-3xl tracking-wide
+            lg:text-3xl ">
+                {{ product?.model }}
+            </div>
+
+            <div class="
+            text-3xl tracking-wide
+            lg:text-2xl ">
+            {{ product?.price | currency }} 
+            </div>
         </div>
-        <div class="py-8">
-            For more information or to see the
-            <span class="font-semibold">
-                {{product?.maker}} {{product?.model}}
-            </span>
-            in person,
-            <br>
-            <span class="italic font-semibold">shoot</span> Rick an email or call/text today...
-            <br>
-            <div class="flex flex-row pt-4">
-                <button class="px-8 underline underline-offset-4">
-                    <i class="fa fa-envelope underline underline-offset-4"></i>
-                    Email Us
-                </button>
-                <div class="px-8 underline underline-offset-4">
-                    <i class="fa fa-phone underline underline-offset-4"></i>
-                    701-527-0186
+        <!--END: Title: Product Maker, Model, Price-->
+
+        <!--Description and Contact Info-->
+        <div class="text-lg">
+            <div>
+                {{ product?.description }}
+            </div>
+            <div class="py-8">
+                For more information or to see the
+                <span class="font-semibold">
+                    {{product?.maker}} {{product?.model}}
+                </span>
+                in person,
+                <br>
+                <span class="italic font-semibold">shoot</span> Rick an email or call/text today...
+                <br>
+                <div class="flex flex-row pt-4">
+                    <button class="px-8 underline underline-offset-4">
+                        <i class="fa fa-envelope underline underline-offset-4"></i>
+                        Email Us
+                    </button>
+                    <div class="px-8 underline underline-offset-4">
+                        <i class="fa fa-phone underline underline-offset-4"></i>
+                        701-527-0186
+                    </div>
                 </div>
             </div>
         </div>
+        <!--END: Description and Contact Info-->
     </div>
 </div>
