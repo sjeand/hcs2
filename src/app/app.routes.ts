@@ -16,6 +16,7 @@ import { AddNewGunshowComponent } from './add-new-gunshow/add-new-gunshow.compon
 import { GunshowsComponent } from './gunshows/gunshows.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { ConsignmentsComponent } from './consignments/consignments.component';
 
 export const routes: Routes = [
     {path: 'app-navbar', component: AppNavbarComponent},
@@ -37,6 +38,7 @@ export const routes: Routes = [
     {path: 'gunshows', component: GunshowsComponent},
     {path: 'product-info', component: ProductInfoComponent},
     {path: 'admin-home', component: AdminHomeComponent},
+    {path: 'consignments', component: ConsignmentsComponent},
     {path: 'edit-product/:id', component: AddNewProductComponent},
     {path: 'edit-gunshow/:id', component: AddNewGunshowComponent},
 ];

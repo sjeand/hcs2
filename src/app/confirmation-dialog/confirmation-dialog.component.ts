@@ -11,7 +11,7 @@ import { Gunshow } from '../model/gunshow';
 })
 export class ConfirmationDialogComponent {
   @Output() confirmed = new EventEmitter<boolean>();
-  @Input() gunshow: Gunshow | null = null;
+  @Input() message: string | null = null;
 
   constructor() { }
 

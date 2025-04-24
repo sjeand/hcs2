@@ -8,7 +8,7 @@
             <div class="">
                 <app-toast-message class="border b-2-adminAccent" *ngIf="toastMessage != ''" [message]="toastMessage">
                 </app-toast-message>
-                <app-confirmation-dialog *ngIf="showConfirmationDialog" [gunshow]="gunshowToDelete"
+                <app-confirmation-dialog *ngIf="gunshowToDelete" [message]="deleteMessage"
                     (confirmed)="deleteGunshow($event)">
                 </app-confirmation-dialog>
             </div>
@@ -47,7 +47,7 @@
                                         <i class="fa fa-trash px-2"></i>
                                         Delete
                                     </button>
-                                    <button (click)="editGunshow( gunshow.id )" class="icon-button">
+                                    <button [routerLink]="['/edit-gunshow', gunshow.id]" (click)="editGunshow( $event )" class="icon-button">
                                         <i class="fa fa-edit px-2"></i>
                                         Edit
                                     </button>

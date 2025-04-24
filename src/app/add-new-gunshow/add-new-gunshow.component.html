@@ -43,7 +43,8 @@
                 <div>
                     <button type="submit" [disabled]="!gunshowForm.valid"
                         class="mt-2 px-6 py-2 bg-adminAccent inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800">
-                        Submit
+                        {{ isEditing() ? 'Update Gunshow' : 'Add New Gunshow' }}
+
                     </button>
                 </div>
 

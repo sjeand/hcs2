@@ -7,11 +7,12 @@ import { environment } from '../../environments/environment';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { ToastMessageComponent } from '../toast-message/toast-message.component';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'gunshows',
   standalone: true,
-  imports: [PageHeadingComponent, NgFor, NgIf, ToastMessageComponent, ConfirmationDialogComponent],
+  imports: [PageHeadingComponent, NgFor, NgIf, ToastMessageComponent, ConfirmationDialogComponent, RouterLink],
   templateUrl: './gunshows.component.html',
   styleUrl: './gunshows.component.scss'
 })
@@ -20,8 +21,8 @@ export class GunshowsComponent {
   isAdmin: boolean = false;
   private supabase: SupabaseClient;
   toastMessage: string = '';
-  showConfirmationDialog: boolean = false;
   gunshowToDelete: Gunshow | null = null;
+  deleteMessage: string = '';
 
   constructor(private gunshowService: GunshowService) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
@@ -51,13 +52,14 @@ export class GunshowsComponent {
   }
 
   confirmDelete(gunshow: Gunshow) {
-    this.gunshowToDelete = gunshow;
-    this.showConfirmationDialog = true;
+    this.gunshowToDelete = gunshow; 
+    this.deleteMessage = `Are you sure you want to delete the
+    "${gunshow?.name}"
+      gun show?`;
   }
 
   async deleteGunshow(confirmed: boolean) {
     if (confirmed && this.gunshowToDelete !== null) {
-      console.log('Deleting gunshow named: ', this.gunshowToDelete.name); // Debugging: Log the id being deleted
       const { data, error } = await this.gunshowService.deleteGunshow(this.gunshowToDelete.id);
       if (error) {
         console.error('Error deleting gunshow:', error.message);
@@ -70,9 +72,11 @@ export class GunshowsComponent {
         }, 3000);
       }
     }
-    this.showConfirmationDialog = false;
+    this.deleteMessage = '';
     this.gunshowToDelete = null;
   }
 
-  editGunshow(id: number) {}
+  editGunshow(event: MouseEvent) {
+    event.stopPropagation();
+  }
 }

@@ -1,12 +1,10 @@
 <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
     <div class="container bg-white p-10 rounded-lg shadow-lg">
-        <h1>Are you sure you want to delete the
-          "{{ gunshow?.name }}"
-            gun show?
-        </h1>
+        <h1> {{ message }} </h1>
         <div class="flex justify-center mt-4">
             <button (click)="onConfirm()" class="mx-2 bg-adminAccent p-2 rounded-lg">Delete</button>
             <button (click)="onCancel()" class="mx-2 bg-adminAccent p-2 rounded-lg">Cancel</button>
         </div>
     </div>
 </div>
+

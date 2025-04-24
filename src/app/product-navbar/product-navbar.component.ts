@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HSDropdown } from "preline/preline";
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'product-navbar',
   standalone: true,
-  imports: [],
+  imports: [SearchBarComponent],
   templateUrl: './product-navbar.component.html',
   styleUrl: './product-navbar.component.scss'
 })

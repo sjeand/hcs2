@@ -60,7 +60,7 @@
                         {{ productImage ? productImage.split("/").slice(-1)[0] : 'No image selected' }}
                     </div>
                 </div>
-
+<!--TODO [disabled]="!productForm.valid"-->
                 <button type="submit"
                     class="mt-2 p-4 items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800 bg-adminAccent">
                     {{ isEditing() ? 'Update Product' : 'Add New Product' }}

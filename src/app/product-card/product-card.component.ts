@@ -18,9 +18,9 @@ export class ProductCardComponent {
   productImage = "";
   isAdmin: boolean = false;
   private supabase: SupabaseClient;
-  @Output() deleteClicked = new EventEmitter<number>();
+  @Output() deleteClicked = new EventEmitter<Product>();
 
-  constructor(private productService: ProductService, private router: Router) {
+  constructor(private productService: ProductService) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
   }
   async ngOnInit(): Promise<void> {
@@ -46,8 +46,8 @@ export class ProductCardComponent {
    
     // await this.productService.deleteProduct(this.product.id!);
     // this.router.navigate(['/product-page']);
-    // event.stopPropagation();
-    this.deleteClicked.emit(this.product.id!);
+    event.stopPropagation();
+    this.deleteClicked.emit(this.product);
   }
   
 

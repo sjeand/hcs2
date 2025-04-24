@@ -1,10 +1,8 @@
 <page-heading title="Our Products"></page-heading>
-<div class="text-center text-xl mb-4">*** Where to put: We buy used firearms *** </div>
 
 <product-navbar (onFilterClicked)="onFilterClicked($event)"></product-navbar>
 
 <!--Product Cards to be displayed in grid-->
-
 <div class="m-2 w-96
 lg:w-full lg:grid lg:grid-cols-4 lg:gap-4 lg:m-4">
   <div *ngFor="let product of products">
@@ -12,6 +10,11 @@ lg:w-full lg:grid lg:grid-cols-4 lg:gap-4 lg:m-4">
       <product-card [product]="product" (deleteClicked)="handleDeleteClick($event)"></product-card>
     </div>
   </div>
+</div>
+
+<div>
+  <app-confirmation-dialog *ngIf="productToDelete" [message]="deleteMessage" (confirmed)="deleteProduct($event)">
+  </app-confirmation-dialog>
 </div>
 
 <div *ngIf="!products.length && filterType !== 'all'" class="text-center p-10 text-xl">No matching products were found

@@ -6,12 +6,14 @@ import { NgFor, NgIf } from '@angular/common';
 import { ProductService } from '../services/product.service';
 import { PageHeadingComponent } from "../page-heading/page-heading.component";
 import { ActivatedRoute } from '@angular/router';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 
 @Component({
   selector: 'product-page',
   standalone: true,
-  imports: [ProductCardComponent, ProductNavbarComponent, NgFor, PageHeadingComponent, NgIf],
+  imports: [ProductCardComponent, ProductNavbarComponent, NgFor, PageHeadingComponent, NgIf, ConfirmationDialogComponent, SearchBarComponent],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss'
 })
@@ -19,7 +21,9 @@ export class ProductPageComponent {
   products: Product[] = [];
   filterType: string = 'all';
   searchText: string | null = '';
-  private route = inject(ActivatedRoute)
+  private route = inject(ActivatedRoute);
+  deleteMessage: string = '';
+  productToDelete: Product | null = null;
 
   constructor(private productService: ProductService) { }
 
@@ -38,8 +42,18 @@ export class ProductPageComponent {
     this.fetchProducts();
   };
 
-  async handleDeleteClick(productId: number) {
-    await this.productService.deleteProduct(productId);
+  async handleDeleteClick(product: Product) {
+    this.productToDelete = product;
+    this.deleteMessage = `Are you sure you want to delete the "${product?.maker} ${product.model}" product?`;
+  };
+
+  async deleteProduct(confirmed: boolean) {
+    if (!confirmed) {
+      this.productToDelete = null;
+      return;
+    }
+    await this.productService.deleteProduct(this.productToDelete!.id!);
+    this.productToDelete = null;
     this.fetchProducts();
   };
 }
