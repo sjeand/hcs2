@@ -1,6 +1,6 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { map } from 'rxjs';
 import { Product } from '../model/product';
 import { ProductService } from '../services/product.service';
@@ -8,7 +8,7 @@ import { ProductService } from '../services/product.service';
 @Component({
   selector: 'product-info',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, RouterModule],
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
 })

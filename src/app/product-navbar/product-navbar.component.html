@@ -1,23 +1,23 @@
-<div class="lg:flex lg:justify-center bg-background">
+<div class="lg:flex lg:justify-center bg-background ">
 
   <!--Shop All Button-->
   <div class="gap-2 px-2 inline-flex w-80
        lg:w-full lg:justify-center lg:gap-4 lg:px-0">
-    <button type="button" class="px-4 inline-flex items-center gap-x-2
-                text-sm font-medium rounded-lg border border-gray-400 bg-white text-gray-800 
+    <button type="button" class="hover:bg-stone-200 px-4 inline-flex items-center gap-x-2
+                text-sm font-medium border border-stone-400 bg-white  
                 md:w-64" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown" (click)="onClick('all')">
       Shop All
     </button>
 
     <!--Hand Gun Button-->
     <div class="hs-dropdown hs-dropdown-example relative inline-flex">
-      <button type="button" class="hs-dropdown-toggle justify-between  px-4 inline-flex items-center 
-            gap-x-2 text-sm font-medium rounded-lg border border-gray-400 bg-white text-gray-800 
-            shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 
+      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between  px-4 inline-flex items-center 
+            gap-x-2 text-sm font-medium border border-stone-400 bg-white  
+            shadow-sm hover:bg-stone-200 focus:outline-none disabled:opacity-50 
             disabled:pointer-events-none
             md:w-64 " aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
         <div class="grow-2">Hand Guns</div>
-        <svg class="hs-dropdown-open:rotate-180 size-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24"
+        <svg class="hs-dropdown-open:rotate-180 size-4 " xmlns="http://www.w3.org/2000/svg" width="24"
           height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"></path>
@@ -26,18 +26,18 @@
 
       <!--Hand Gun Drop Down-->
       <div id="hand-gun-dropdown"
-        class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2"
+        class=" hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md  p-2"
         role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-example">
         <a (click)="onClick('handgun')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm  hover:bg-stone-200 focus:outline-none">
           All Hand Guns
         </a>
         <a (click)="onClick('revolver')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm  hover:bg-stone-200 focus:outline-none">
           Revolvers
         </a>
         <a (click)="onClick('semiautomatic')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm  hover:bg-stone-200 focus:outline-none">
           Semi-Automatic
         </a>
       </div>
@@ -45,13 +45,13 @@
 
     <!--Long Gun Button-->
     <div class="hs-dropdown hs-dropdown-example relative inline-flex">
-      <button type="button" class="hs-dropdown-toggle justify-between py-3 px-4 inline-flex items-center gap-x-2 
-            text-sm font-medium rounded-lg border border-gray-400 bg-white text-gray-800 
-            shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 
+      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between py-3 px-4 inline-flex items-center gap-x-2 
+            text-sm font-medium  border border-stone-400 bg-white 
+            shadow-sm hover:bg-stone-200 focus:outline-none disabled:opacity-50 
             disabled:pointer-events-none
             md:w-64 " aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
         Long Guns
-        <svg class="hs-dropdown-open:rotate-180 size-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24"
+        <svg class="hs-dropdown-open:rotate-180 size-4 " xmlns="http://www.w3.org/2000/svg" width="24"
           height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"></path>
@@ -60,18 +60,18 @@
 
       <!--Long Gun Drop Down-->
       <div id="long-gun-dropdown"
-        class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2"
+        class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md  p-2"
         role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-example">
         <a (click)="onClick('longgun')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm hover:bg-stone-200 focus:outline-none">
           All Long Guns
         </a>
         <a (click)="onClick('rifle')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm hover:bg-stone-200 focus:outline-none">
           Rifles
         </a>
         <a (click)="onClick('shotgun')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm hover:bg-stone-200 focus:outline-none">
           Shotguns
         </a>
       </div>
@@ -79,13 +79,13 @@
 
     <!--Other Button-->
     <div class="hs-dropdown hs-dropdown-example relative inline-flex">
-      <button type="button" class="hs-dropdown-toggle justify-between py-3 px-4 inline-flex items-center 
-            gap-x-2 text-sm font-medium rounded-lg border border-gray-400 bg-white 
-            text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 
+      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between py-3 px-4 inline-flex items-center 
+            gap-x-2 text-sm font-medium border border-stone-400 bg-white 
+            shadow-sm hover:bg-stone-200 focus:outline-none 
             disabled:opacity-50 disabled:pointer-events-none
             md:w-64 " aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
         Other
-        <svg class="hs-dropdown-open:rotate-180 size-4 text-gray-600" xmlns="http://www.w3.org/2000/svg" width="24"
+        <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
           height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"></path>
@@ -94,22 +94,22 @@
 
       <!--Other Drop Down-->
       <div id="other"
-        class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md rounded-lg p-2"
+        class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-60 bg-white shadow-md  p-2"
         role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-example">
         <a (click)="onClick('other')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm hover:bg-stone-200 focus:outline-none">
           All other
         </a>
         <a (click)="onClick('accessory')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm hover:bg-stone-200 focus:outline-none">
           Accessories
         </a>
         <a (click)="onClick('ammunition')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm  hover:bg-stone-200 focus:outline-none">
           Ammunition
         </a>
         <a (click)="onClick('part')"
-          class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+          class="flex items-center gap-x-3.5 py-2 px-3  text-sm hover:bg-stone-200 focus:outline-none">
           Parts
         </a>
       </div>
@@ -117,7 +117,7 @@
 
     <div class="col-span-3 mr-2 pr-2 pl-2 md:mr-0">
       <!--Search bar-->
-      <search-bar></search-bar>
+      <search-bar [searchText]="searchText"></search-bar>
     </div>
 
   </div>

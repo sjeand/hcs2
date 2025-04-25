@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-toast-message',
@@ -10,4 +10,9 @@ import { Component, Input } from '@angular/core';
 
 export class ToastMessageComponent {
  @Input() message = "";
-}
+  @Output() public onClose = new EventEmitter();
+ 
+    closeToast() {
+      this.onClose.emit();
+    }
+  }

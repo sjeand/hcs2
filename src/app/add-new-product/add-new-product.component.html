@@ -69,7 +69,7 @@
 
         </div>
 
-        <app-toast-message class="border b-2-adminAccent" *ngIf="showToast" [message]="toastMessage">
+        <app-toast-message class="border b-2-adminAccent" *ngIf="showToast" [message]="toastMessage" (onClose)="showToast = false">
         </app-toast-message>
 
     </div>

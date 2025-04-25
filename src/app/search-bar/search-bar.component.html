@@ -1,7 +1,7 @@
 <!-- Search Bar -->
  <div class="md:flex align-middle">
-    <input class="self-center rounded-lg" type="text" placeholder="Search Our Inventory..."
-    class="border-black text-sm w-80" 
-    [(ngModel)]="searchText" (input)="searchChange()" >
+    <input #searchInput class="self-center "  placeholder="change"
+    class="border-black text-md w-80 " 
+    [(ngModel)]="searchText" (keydown.enter)="searchChange()" >
 </div>
 

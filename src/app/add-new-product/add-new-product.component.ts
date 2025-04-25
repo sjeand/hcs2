@@ -96,6 +96,8 @@ export class AddNewProductComponent {
 
       this.showToast = true;
       this.productForm?.reset()  // Reset the form
+      this.productImage = undefined; // Reset the image
+      this.imageChanged = false; // Reset the image changed flag
       setTimeout(() => {
         this.showToast = false;
       }, 5000);

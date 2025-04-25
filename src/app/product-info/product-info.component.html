@@ -1,12 +1,11 @@
 <!--Div to hold all content, Large screens will divide to 4 columns-->
 <div class="
-    w-96 p-4
-    lg:w-full lg:grid lg:grid-cols-4 lg:gap-4 lg:m-4
+    w-96 p-6
+    lg:w-full lg:grid lg:grid-cols-6 lg:gap-4 lg:m-4
     ">
 
     <!--Product Image, Large: Column 1-->
-    <div class="
-        lg:w-3/5 lg:col-span-2">
+    <div class="lg:col-span-2">
         <img [src]="productImage"
         class="
         w-full h-96 border-b-2
@@ -17,26 +16,26 @@
 
     <!--Product Info, Large: Column 2-->
     <div class="
-        lg:w-full lg:col-span-2 lg:float-left">
+        lg:w-full lg:col-span-4 lg:float-left">
 
         <!--Title: Product Maker, Model, Price-->
-        <div>
+        <div class="">
             <div class="
             text-3xl tracking-wide font-semibold
-            lg:text-4xl 
+            lg:text-4xl lg:pb-2
             ">
                 {{ product?.maker }}
             </div>
 
             <div class="
             text-3xl tracking-wide
-            lg:text-3xl ">
+            lg:text-3xl lg:pb-2">
                 {{ product?.model }}
             </div>
 
             <div class="
             text-3xl tracking-wide
-            lg:text-2xl ">
+            lg:text-2xl lg:pb-2">
             {{ product?.price | currency }} 
             </div>
         </div>
@@ -57,7 +56,7 @@
                 <span class="italic font-semibold">shoot</span> Rick an email or call/text today...
                 <br>
                 <div class="flex flex-row pt-4">
-                    <button class="px-8 underline underline-offset-4">
+                    <button class="underline underline-offset-4">
                         <i class="fa fa-envelope underline underline-offset-4"></i>
                         Email Us
                     </button>
@@ -69,5 +68,14 @@
             </div>
         </div>
         <!--END: Description and Contact Info-->
+
+        <!--Return to product page button-->
+        <button [routerLink]="['/product-page']" class="hover:bg-stone-200 hs-dropdown-toggle p-3 w-64 items-center 
+        text-sm font-medium  border border-stone-500 bg-white 
+        shadow-sm hover:bg-stone-200">
+        Return to products
+        </button>
+
     </div>
+    
 </div>

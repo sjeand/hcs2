@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { HSDropdown } from "preline/preline";
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-navbar',
@@ -11,16 +12,29 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
 })
 export class ProductNavbarComponent {
   @Output() public onFilterClicked = new EventEmitter<string>();
-  onClick(filterType: string): void {
-    this.onFilterClicked.emit(filterType)
-  }
+  searchText: string = '';
+
+  constructor(private router: Router) {
+    const currentUrl = this.router.url;
+    const searchParameter = 'searchText=';
+    const location = currentUrl.indexOf(searchParameter);
+    if (location === -1) {
+      this.searchText = '';
+      return;
+    }
+    this.searchText = currentUrl.substring(location + searchParameter.length);
+   }
+
   ngOnInit(): void {
     const openBtn = document.querySelector('#hand-gun-btn');
-
     openBtn?.addEventListener('click', () => {
       const dropdown = document.querySelector("#hand-gun-dropdown")
       HSDropdown.open(dropdown as HTMLElement);
     });
+  }
+  onClick(filterType: string): void {
+    this.searchText = '';
+    this.onFilterClicked.emit(filterType)
   }
 }
 
