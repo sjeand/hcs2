@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { RouterLink } from '@angular/router';
+import { AdminHomeComponent } from "../admin-home/admin-home.component";
 
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [SearchBarComponent, RouterLink],
+  imports: [SearchBarComponent, RouterLink, AdminHomeComponent],
   templateUrl: './app-navbar.component.html',
   styleUrl: './app-navbar.component.scss'
 })
