@@ -1,27 +1,43 @@
-<div class="flex flex-col bg-white bordershadow-lg" routerLink="/product-info" [state]="product">
-  <div>
-    <img class="w-full h-96 border-b-2" [src]="productImage" alt="Card Image" height="200" />
-  </div>
-  <div class="p-4  columns-2 md:p-5">
-    <div class="text-xl font-semibold">
-      {{ product.maker }}
-    </div>
-    <div class="text-lg font-normal">
-      {{ product.model }}
-    </div>
-    <div class="font-semibold">
-      {{ product.price | currency }}
-    </div>
-  </div>
-  <div *ngIf="isAdmin" class="font-semibold text-center col-2">
-    <button (click)="onDeleteClick($event)" class="icon-button bg-adminAccent p-2 m-2 rounded font-semibold w-1/4">
+<!--Product card-->
+<div class="grid grid-rows-3 gap-4 bg-white bordershadow-lg h-96 p-4" routerLink="/product-info" [state]="product">
 
-      <i class="fa fa-trash px-2"></i>
-      Delete
-    </button>
-    <button [routerLink]="['/edit-product', product.id]" (click)="onEditClick($event)"  class="icon-button bg-adminAccent p-2 m-2 rounded-lg w-1/4">
-      <i class="fa fa-edit px-2"></i>
-      Edit
-    </button>
+
+  <!--Product image-->
+  <div class="row-span-2">
+    <img class="w-full p-4 align-middle" [src]="productImage" alt="Card Image" height="" />
   </div>
+
+  <!--Product details section-->
+  <div class="grid grid-cols-2 border-t-2 mt-4">
+    <div class="p-4 md:p-5">
+      <div class="text-xl font-semibold">
+        {{ product.maker }}
+      </div>
+      <div class="text-lg font-normal">
+        {{ product.model }}
+      </div>
+    </div>
+    <div>
+      <div class="font-semibold float-right p-4">
+        {{ product.price | currency }}
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+<!--Product admin-->
+<div *ngIf="isAdmin" class="font-semibold text-center col-2">
+  <button (click)="onDeleteClick($event)" class="icon-button bg-adminAccent p-2 m-2 rounded font-semibold w-1/4">
+
+    <i class="fa fa-trash px-2"></i>
+    Delete
+  </button>
+  <button [routerLink]="['/edit-product', product.id]" (click)="onEditClick($event)"
+    class="icon-button bg-adminAccent p-2 m-2 rounded-lg w-1/4">
+    <i class="fa fa-edit px-2"></i>
+    Edit
+  </button>
 </div>
