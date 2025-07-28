@@ -1,14 +1,14 @@
 <page-heading title="Our Products"></page-heading>
 
-<product-navbar (onFilterClicked)="onFilterClicked($event)"></product-navbar>
+<product-navbar class="w-100" (onFilterClicked)="onFilterClicked($event)"></product-navbar>
 
-<div class="w-100 text-center text-lg py-4 ">{{ searchInformationText }}</div>
+<div class="w-100 text-center text-md lg:text-lg italic">{{ searchInformationText }}</div>
 
 <!--Product Cards to be displayed in grid-->
-<div class="m-2 w-96
+<div class="justify-center m-2
 lg:w-full lg:grid lg:grid-cols-4 lg:gap-4 lg:m-4">
   <div *ngFor="let product of products">
-    <div class="mr-2">
+    <div class="mb-2">
       <product-card [product]="product" (deleteClicked)="handleDeleteClick($event)"></product-card>
     </div>
   </div>
@@ -19,6 +19,6 @@ lg:w-full lg:grid lg:grid-cols-4 lg:gap-4 lg:m-4">
   </app-confirmation-dialog>
 </div>
 
-<div *ngIf="!products.length && filterType !== 'all'" class="text-center p-10 text-xl">No matching products were found
+<div *ngIf="!products.length && filterType !== 'all'" class="w-100 text-center text-md lg:text-lg italic">No matching products were found
 </div>
-<div *ngIf="!products.length && filterType == 'all'" class="text-center p-10 text-xl">No products are available</div>
+<div *ngIf="!products.length && filterType == 'all'" class="w-100 text-center text-md lg:text-lg italic">No products are available</div>

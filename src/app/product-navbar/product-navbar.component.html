@@ -1,24 +1,24 @@
-<div class="lg:flex lg:justify-center bg-background ">
+<div class="justify-items-center bg-background w-100">
 
   <!--Shop All Button-->
-  <div class="gap-2 px-2 inline-flex w-80
-       lg:w-full lg:justify-center lg:gap-4 lg:px-0">
-    <button type="button" class="hover:bg-stone-200 px-4 inline-flex items-center gap-x-2
+  <div class="gap-2 p-2 lg:inline-flex 
+       lg:w-full justify-center lg:gap-4 lg:px-0">
+    <button type="button" class="hover:bg-stone-200 p-2 inline-flex items-center gap-x-2
                 text-sm font-medium border border-stone-400 bg-white  
-                md:w-64" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown" (click)="onClick('all')">
+                w-1/2 lg:w-64 m-1" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown" (click)="onClick('all')">
       Shop All
     </button>
 
     <!--Hand Gun Button-->
     <div class="hs-dropdown hs-dropdown-example relative inline-flex">
-      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between  px-4 inline-flex items-center 
+      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between  p-2 inline-flex items-center 
             gap-x-2 text-sm font-medium border border-stone-400 bg-white  
             shadow-sm hover:bg-stone-200 focus:outline-none disabled:opacity-50 
             disabled:pointer-events-none
-            md:w-64 " aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+            w-1/2 lg:w-64 m-1" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
         <div class="grow-2">Hand Guns</div>
-        <svg class="hs-dropdown-open:rotate-180 size-4 " xmlns="http://www.w3.org/2000/svg" width="24"
-          height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        <svg class="hs-dropdown-open:rotate-180 size-4 " xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"></path>
         </svg>
@@ -41,18 +41,18 @@
           Semi-Automatic
         </a>
       </div>
-    </div>
+  </div>
 
-    <!--Long Gun Button-->
-    <div class="hs-dropdown hs-dropdown-example relative inline-flex">
-      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between py-3 px-4 inline-flex items-center gap-x-2 
-            text-sm font-medium  border border-stone-400 bg-white 
-            shadow-sm hover:bg-stone-200 focus:outline-none disabled:opacity-50 
-            disabled:pointer-events-none
-            md:w-64 " aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+  <!--Long Gun Button-->
+  <div class="hs-dropdown hs-dropdown-example relative inline-flex">
+    <button type="button" class="p-2 hover:bg-stone-200 hs-dropdown-toggle justify-between  inline-flex items-center gap-x-2 
+          text-sm font-medium  border border-stone-400 bg-white 
+          shadow-sm hover:bg-stone-200 focus:outline-none disabled:opacity-50 
+          disabled:pointer-events-none
+          w-40 lg:w-64 m-1" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
         Long Guns
-        <svg class="hs-dropdown-open:rotate-180 size-4 " xmlns="http://www.w3.org/2000/svg" width="24"
-          height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        <svg class="hs-dropdown-open:rotate-180 size-4 " xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"></path>
         </svg>
@@ -79,14 +79,14 @@
 
     <!--Other Button-->
     <div class="hs-dropdown hs-dropdown-example relative inline-flex">
-      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between py-3 px-4 inline-flex items-center 
+      <button type="button" class="hover:bg-stone-200 hs-dropdown-toggle justify-between p-2 inline-flex items-center 
             gap-x-2 text-sm font-medium border border-stone-400 bg-white 
             shadow-sm hover:bg-stone-200 focus:outline-none 
             disabled:opacity-50 disabled:pointer-events-none
-            md:w-64 " aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+            w-40 lg:w-64 m-1" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
         Other
-        <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-          height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
           <path d="m6 9 6 6 6-6"></path>
         </svg>
@@ -115,9 +115,9 @@
       </div>
     </div>
 
-    <div class="col-span-3 mr-2 pr-2 pl-2 md:mr-0">
+    <div class="flex lg:col-span-3 m-1">
       <!--Search bar-->
-      <search-bar [searchText]="searchText"></search-bar>
+      <search-bar class="mx-1" [searchText]="searchText"></search-bar>
     </div>
 
-  </div>
+</div>
