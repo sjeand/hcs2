@@ -41,4 +41,6 @@ export const routes: Routes = [
     {path: 'consignments', component: ConsignmentsComponent},
     {path: 'edit-product/:id', component: AddNewProductComponent},
     {path: 'edit-gunshow/:id', component: AddNewGunshowComponent},
+    { path: '**', redirectTo: 'home' } // Wildcard route for invalid paths
 ];
+
